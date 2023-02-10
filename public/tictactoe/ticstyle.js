@@ -42,6 +42,7 @@ function startgame() {
       for (let i = 0; i < grids.length; i++) {
         grids[i].innerHTML = null;
       }
+      filled = 0;
       turn.innerHTML = null;
       button.innerHTML = "start";
       startgame();
@@ -54,7 +55,7 @@ function startgame() {
       grids[i].onclick = function () {
         if (grids[i].innerHTML != "O" && grids[i].innerHTML != "X") {
           grids[i].innerHTML = "X";
-          filled+=1;
+          filled += 1;
           playerturn = false;
           computerturn = true;
           swapturn(playerturn, computerturn);
@@ -71,13 +72,13 @@ function startgame() {
       if (grids[random].innerHTML != "O" && grids[random].innerHTML != "X") {
         await new Promise((r) => setTimeout(r, 1100));
         grids[random].innerHTML = "O";
-        filled+=1;
+        filled += 1;
         computerturn = false;
         playerturn = true;
         swapturn(playerturn, computerturn);
         break;
       }
-      if(filled==9){
+      if (filled == 9) {
         turn.innerHTML = "Game ended";
         break;
       }
