@@ -6,7 +6,8 @@ function startgame() {
 
   let clicked = false;
   let gameEnd = false;
-  let hasMoved = false;
+  let filled = 0;
+  // let hasMoved = false;
 
   let grid1 = document.querySelector("#grid1");
   let grid2 = document.querySelector("#grid2");
@@ -53,6 +54,7 @@ function startgame() {
       grids[i].onclick = function () {
         if (grids[i].innerHTML != "O" && grids[i].innerHTML != "X") {
           grids[i].innerHTML = "X";
+          filled+=1;
           playerturn = false;
           computerturn = true;
           swapturn(playerturn, computerturn);
@@ -67,11 +69,16 @@ function startgame() {
       let random = Math.floor(Math.random() * grids.length);
       console.log(random);
       if (grids[random].innerHTML != "O" && grids[random].innerHTML != "X") {
-        await new Promise((r) => setTimeout(r, 1500));
+        await new Promise((r) => setTimeout(r, 1100));
         grids[random].innerHTML = "O";
+        filled+=1;
         computerturn = false;
         playerturn = true;
         swapturn(playerturn, computerturn);
+        break;
+      }
+      if(filled==9){
+        turn.innerHTML = "Game ended";
         break;
       }
     }
