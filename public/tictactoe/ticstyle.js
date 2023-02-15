@@ -28,17 +28,15 @@ function startgame(){
       button.innerHTML = "restart";
       let roulette = Math.round(Math.random());
   
-      // while([...grids].innerHTML!="X" || [...grids].innerHTML!="O"){
-        if(roulette === 0){
-          playerturn = true;
-          playermove();
-          roulette = 1;
-        }else{
-          computerturn = true;
-          computermove();
-          roulette = 0;
-        }
-      // }
+      if(roulette === 0){
+        playerturn = true;
+        playermove();
+        roulette = 1;
+      }else{
+        computerturn = true;
+        computermove();
+        roulette = 0;
+      }
      
     }else{
       for (let i = 0; i < grids.length; i++) {
