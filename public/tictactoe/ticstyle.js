@@ -58,21 +58,22 @@ button.onclick = function () {
 function playermove(){
   for(let i = 0; i<grids.length; i++){
     grids[i].onclick = function(){
-      if(grids[i] != 0){
+      if(grids[i].innerHTML != "O" && grids[i].innerHTML != "X"){
         grids[i].innerHTML = "X";
-        grids[i] = 0;
+        // grids[i] = 0;
         return;
       }
     };
   }
 }
 
-function computermove(){
+async function computermove(){
   while(true){
-    let random = Math.floor(Math.random() * grids.length + 1);
-    if (grids[random] != 0){
+    let random = Math.floor(Math.random() * grids.length);
+    console.log(random);
+    if (grids[random].innerHTML != "O" && grids[random].innerHTML != "X"){
+      await new Promise(r => setTimeout(r, 1500));
       grids[random].innerHTML = "O";
-      grids[random] = 0;
       return;
     }
   }
