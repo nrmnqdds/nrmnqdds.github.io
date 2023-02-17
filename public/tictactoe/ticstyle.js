@@ -23,7 +23,7 @@ button.onclick = function () {
 
     button.innerHTML = "restart";
     let roulette = Math.round(Math.random());
-    // while(!gameEnd){
+    
     if(roulette === 0){
       turn.innerHTML = "Your turn!";
       playerturn = true;
@@ -33,7 +33,6 @@ button.onclick = function () {
       computerturn = true;
       computermove();
     }
-    // }
 
     clicked = true;
   }else{
@@ -45,22 +44,11 @@ button.onclick = function () {
   }
 };
 
-// while(!gameEnd){
-//     if(playerturn){
-//         playermove();
-//     }else if(computerturn){
-//         computermove();
-//     }else{
-//         gameEnd = true;
-//     }
-// }
-
 function playermove(){
   for(let i = 0; i<grids.length; i++){
     grids[i].onclick = function(){
       if(grids[i].innerHTML != "O" && grids[i].innerHTML != "X"){
         grids[i].innerHTML = "X";
-        // grids[i] = 0;
         return;
       }
     };
