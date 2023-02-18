@@ -16,35 +16,33 @@ let grid8 = document.querySelector("#grid8");
 let grid9 = document.querySelector("#grid9");
 let grids = [grid1, grid2, grid3, grid4, grid5, grid6, grid7, grid8, grid9];
 
-button.onclick = function(){
-    if(!clicked){
-        let playerturn = false;
-        let computerturn = false;
+button.onclick = function () {
+  if (!clicked) {
+    let playerturn = false;
+    let computerturn = false;
 
-        button.innerHTML = "restart";
-        let roulette = Math.round(Math.random())
-        // while(!gameEnd){
-            if(roulette===0){
-                turn.innerHTML = "Your turn!";
-                playerturn = true;
-                playermove();
-            }else{
-                turn.innerHTML = "Computer's turn!";
-                computerturn = true;
-                computermove();
-            }
-        // }
-        
-
-        clicked = true;
+    button.innerHTML = "restart";
+    let roulette = Math.round(Math.random());
+    // while(!gameEnd){
+    if(roulette === 0){
+      turn.innerHTML = "Your turn!";
+      playerturn = true;
+      playermove();
     }else{
-        for(let i=0; i<grids.length; i++){
-            grids[i].innerHTML = null;
-        }
-        button.innerHTML = "start";
-        clicked = false;
+      turn.innerHTML = "Computer's turn!";
+      computerturn = true;
+      computermove();
     }
-    
+    // }
+
+    clicked = true;
+  }else{
+    for (let i = 0; i < grids.length; i++) {
+      grids[i].innerHTML = null;
+    }
+    button.innerHTML = "start";
+    clicked = false;
+  }
 };
 
 // while(!gameEnd){
@@ -58,24 +56,24 @@ button.onclick = function(){
 // }
 
 function playermove(){
-    for(let i=0; i<grids.length; i++){
-        grids[i].onclick = function(){
-            if(grids[i]!=0){
-                grids[i].innerHTML = "X";
-                grids[i] = 0;
-                return;
-            }
-        }
-    }
+  for(let i = 0; i<grids.length; i++){
+    grids[i].onclick = function(){
+      if(grids[i] != 0){
+        grids[i].innerHTML = "X";
+        grids[i] = 0;
+        return;
+      }
+    };
+  }
 }
 
 function computermove(){
-    while(true){
-        let random = Math.floor(Math.random()*grids.length+1);
-        if(grids[random]!=0){
-            grids[random].innerHTML = "O";
-            grids[random] = 0;
-            return;
-        }
+  while(true){
+    let random = Math.floor(Math.random() * grids.length + 1);
+    if (grids[random] != 0){
+      grids[random].innerHTML = "O";
+      grids[random] = 0;
+      return;
     }
+  }
 }
