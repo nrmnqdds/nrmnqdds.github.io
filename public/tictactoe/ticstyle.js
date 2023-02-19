@@ -3,6 +3,7 @@ let button = document.querySelector("#start");
 
 let clicked = false;
 let gameEnd = false;
+let hasMoved = false;
 
 let grid1 = document.querySelector("#grid1");
 let grid2 = document.querySelector("#grid2");
@@ -22,7 +23,7 @@ button.onclick = function(){
 
         button.innerHTML = "restart";
         let roulette = Math.round(Math.random())
-        while(!gameEnd){
+        // while(!gameEnd){
             if(roulette===0){
                 turn.innerHTML = "Your turn!";
                 playerturn = true;
@@ -32,38 +33,49 @@ button.onclick = function(){
                 computerturn = true;
                 computermove();
             }
-        }
+        // }
         
 
         clicked = true;
     }else{
+        for(let i=0; i<grids.length; i++){
+            grids[i].innerHTML = null;
+        }
         button.innerHTML = "start";
         clicked = false;
     }
     
 };
 
-while(!gameEnd){
-    if(playerturn){
-        playermove();
-    }else if(computerturn){
-        computermove();
-    }else{
-        gameEnd = true;
-    }
-}
+// while(!gameEnd){
+//     if(playerturn){
+//         playermove();
+//     }else if(computerturn){
+//         computermove();
+//     }else{
+//         gameEnd = true;
+//     }
+// }
 
 function playermove(){
     for(let i=0; i<grids.length; i++){
         grids[i].onclick = function(){
-            grids[i].innerHTML = "X";
-            grids.splice(i, 1);
+            if(grids[i]!=0){
+                grids[i].innerHTML = "X";
+                grids[i] = 0;
+                return;
+            }
         }
     }
 }
 
 function computermove(){
-    let random = Math.floor(Math.random()*grids.length);
-    grids[random-1].innerHTML = "O";
-    grids.splice(random-1, 1);
+    while(true){
+        let random = Math.floor(Math.random()*grids.length+1);
+        if(grids[random]!=0){
+            grids[random].innerHTML = "O";
+            grids[random] = 0;
+            return;
+        }
+    }
 }
