@@ -1,12 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta property="og:title" content="My Portfolio" />
+    <meta property="og:description" content="Welcome to my resume" />
+    <meta property="og:image" content="https://i.pinimg.com/564x/cc/b4/44/ccb444951197c1be85450da87f3997b2.jpg" />
+    <link rel="icon" href="https://i.pinimg.com/564x/cc/b4/44/ccb444951197c1be85450da87f3997b2.jpg" type="image/icon type">
+    <link rel="stylesheet" href="style.css">
+    <title>My Portfolio</title>
 </head>
-<body>
-    my website
+<body class="w-full scrollbar-hide">
+    <div class="h-screen bg-gradient-to-r from-pink-500 to-cyan-500 flex"> <!--firstpage-->
+        <div class="font-semibold text-white font-ubuntu text-left flex justify-center items-center flex-col flex-1">
+            <span class="text-4xl drop-shadow-lg">Graphic Designer<br>& Website Developer<br>
+            <span class="text-sm tracking-wider">Hi, I am Quddus. Welcome to my profile.</span></span>
+            
+            <div class="absolute bottom-20 left-40">
+                <button id="edbutton" class="rounded-full bg-gradient-to-br from-cyan-200 to-pink-200 p-5 m-2 transform duration-300 hover:scale-110 text-blue-600">
+                    ABOUT ME
+                </button>
+                <button id="artbutton" class="rounded-full bg-gradient-to-br from-cyan-200 to-pink-200 p-5 m-2 transform duration-300 hover:scale-110 text-pink-600">
+                    PROJECTS
+                </button>
+            </div>
+        </div>
+        <div class="xl:flex xl:flex-1 xl:justify-center xl:items-center hidden">
+            <span class="rounded-full bg-gradient-to-l from-pink-500 to-cyan-500 inline-block shadow-2xl h-full w-full"></span>
+            <div id="cardd" class="absolute flex flex-col justify-center items-center bg-violet-400 rounded-xl p-5"> <!--card-->
+                <img src="" alt="le me" class="w-40">
+                <h4 class="font-roboto font-extrabold text-lg mb-0">NURIMAN QUDDUS</h4>
+                <h1 class="font-roboto font-semibold text-sm mt-1">Student</h1>
+                <button class="bg-gradient-to-bl from-lime-300 to-violet-300 py-2 px-3 rounded-full shadow-2xl text-white text-sm font-ubuntu mt-3">
+                    HIRE ME
+                </button>
+            </div>
+           
+        </div>
+    </div>
+    <div id="page2" class="h-screen bg-gradient-to-tl from-white to-slate-800"> <!--secondpage-->
+        <!-- <div>
+            <img src="./img/DSC_0118.png" alt="cert" class="-z-10 absolute w-full h-screen opacity-10">
+            <img src="./img/International_Islamic_University_Malaysia_logo.svg.png" alt="uia" class="relative w-20">
+            <h1>2021-Now</h1>
+        </div> -->
+
+        <!-- <div>
+            <img src="./img/International_Islamic_University_Malaysia_logo.svg.png" alt="uia">
+            <h1>2021-Now</h1>
+        </div> -->
+        
+    </div>
+    <div id="page3" class="bg-gradient-to-bl from-pink-500 to-green-500 h-screen"> <!--thirdpage-->
+
+    </div>
+    <script src="style.js"></script>
 </body>
 </html>
