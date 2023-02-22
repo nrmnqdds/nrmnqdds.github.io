@@ -5,7 +5,12 @@ module.exports = {
     "./public/**/*.{html, js}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        "ubuntu": ['Ubuntu Mono', "monospace"],
+        "roboto": ['Roboto Condensed', "sans-serif"]
+      }
+    },
   },
   plugins: [
     require('tailwind-scrollbar-hide'),
