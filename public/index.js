@@ -1,3 +1,7 @@
+import anime from 'animejs/lib/anime.es.js';
+
+var animation = anime.timeline({});
+
 document.querySelector("#edbutton").onclick = function () {
     location.href = "#page2";
 }
