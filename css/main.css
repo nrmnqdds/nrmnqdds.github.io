@@ -2,6 +2,7 @@
 .animation-wrapper {
   width: 50%;
   padding-bottom: 50%;
+  z-index: -1;
 }
 
 .sphere-animation {
@@ -26,40 +27,8 @@
     stroke-width: 0.4px;
   }
 }
-.page1 {
-  display: flex;
-  flex-direction: row;
-}
-.page1 .left {
-  flex: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.page1 .left h4 {
+p {
   color: white;
-  font-family: "IBM Plex Mono", monospace;
-  font-size: xx-large;
-  margin-bottom: 0;
-}
-.page1 .left p {
-  color: white;
-  font-family: "IBM Plex Mono", monospace;
-  margin-top: 0;
-}
-.page1 .right {
-  flex: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.page1 .right p {
-  color: white;
-  font-family: "IBM Plex Mono", monospace;
-  line-height: 0;
-}
-.page1 .right #hello {
-  margin-left: 0;
 }
 
 .s2 {

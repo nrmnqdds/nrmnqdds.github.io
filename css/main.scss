@@ -1,81 +1,45 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Roboto+Condensed:wght@700&family=Ubuntu+Mono:wght@700&display=swap");
 
 .animation-wrapper {
-    width: 50%;
-    padding-bottom: 50%;
-  }
-  
-  .sphere-animation {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 580px;
-    height: 580px;
-    margin: -290px 0 0 -290px;
-  }
-  
+  width: 50%;
+  padding-bottom: 50%;
+  z-index: -1;
+}
+
+.sphere-animation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 580px;
+  height: 580px;
+  margin: -290px 0 0 -290px;
+}
+
+.sphere path {
+  fill: url(#sphereGradient);
+  stroke-width: 1px;
+  stroke: rgba(80, 80, 80, 0.35);
+  backface-visibility: hidden;
+}
+
+@media (min-width: 500px) {
   .sphere path {
-    fill: url(#sphereGradient);
-    stroke-width: 1px;
-    stroke: rgba(80,80,80,.35);
-    backface-visibility: hidden;
+    stroke-width: 0.4px;
   }
-  
-  @media (min-width: 500px) {
-    .sphere path {
-      stroke-width: .4px;
-    }
-  }
-
-.page1{
-    display: flex;
-    flex-direction: row;
-    .left{
-        flex: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        // flex-direction: column;
-        h4{
-            color: white;
-            font-family: 'IBM Plex Mono', monospace;
-            // line-height: 0;
-            font-size: xx-large;
-            margin-bottom: 0;
-        }
-        p{
-            color: white;
-            font-family: 'IBM Plex Mono', monospace;
-            margin-top: 0;
-        }
-    }
-    .right{
-        flex: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        p{
-            color: white;
-            font-family: 'IBM Plex Mono', monospace;
-            line-height: 0;
-        }
-        #hello{
-            margin-left: 0;
-        }
-        
-    
-    }
-
 }
 
-.s2{
-    background-color: blue;
+p {
+  color: white;
 }
 
-.s3{
-    background-color: red;
+.s2 {
+  background-color: blue;
 }
 
-span{
-    background: white !important;
+.s3 {
+  background-color: red;
+}
+
+span {
+  background: white !important;
 }
