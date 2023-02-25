@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "animejs": "^3.2.1",
+    "fullpage.js": "^4.0.17",
     "include-media": "^2.0.0"
   }
 }
