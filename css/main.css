@@ -1,8 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Roboto+Condensed:wght@700&family=Ubuntu+Mono:wght@700&display=swap");
+.page1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .animation-wrapper {
   width: 50%;
   padding-bottom: 50%;
-  z-index: -1;
+  position: absolute;
+  z-index: 1;
+  top: 10;
+  left: 10;
+  opacity: 0.4;
 }
 
 .sphere-animation {
@@ -27,8 +37,27 @@
     stroke-width: 0.4px;
   }
 }
-p {
+.greetings {
+  position: relative;
+  z-index: 2;
+}
+.greetings h4 {
   color: white;
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: bold;
+  letter-spacing: 0.05rem;
+  font-size: xx-large;
+  line-height: 0cap;
+  text-shadow: 2px 2px #FF0000;
+}
+.greetings p {
+  color: white;
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: bold;
+  letter-spacing: 0.075rem;
+  font-size: small;
+  line-height: 0cap;
+  margin: 0;
 }
 
 .s2 {
