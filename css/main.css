@@ -14,6 +14,12 @@
   color: white;
   font-family: "IBM Plex Mono", monospace;
   font-size: xx-large;
+  margin-bottom: 0;
+}
+.page1 .left p {
+  color: white;
+  font-family: "IBM Plex Mono", monospace;
+  margin-top: 0;
 }
 .page1 .right {
   flex: 50%;
