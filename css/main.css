@@ -59,6 +59,59 @@
   margin: 0;
 }
 
+.slide1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /** Layered Animation **/
+}
+.slide1 .animation-wrapper {
+  width: 80%;
+  padding-bottom: 40%;
+}
+.slide1 .layered-animations2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1100px;
+  height: 550px;
+  margin: -275px 0 0 -550px;
+  opacity: 0.4;
+}
+.slide1 .layered-animations2 .shape {
+  position: absolute;
+  top: 50%;
+  overflow: visible;
+  width: 280px;
+  height: 280px;
+  margin-top: -140px;
+  stroke: transparent;
+  stroke-width: 1px;
+  fill: url(#shapesGradient);
+}
+.slide1 .layered-animations2 .small.shape {
+  width: 64px;
+  height: 64px;
+  margin-top: -32px;
+  stroke: orangered;
+  fill: orangered;
+}
+.slide1 .layered-animations2 .x-small.shape {
+  width: 32px;
+  height: 32px;
+  margin-top: -16px;
+  stroke: orangered;
+  fill: orangered;
+}
+@media (min-width: 740px) {
+  .slide1 .layered-animations2 .shape {
+    stroke-width: 0.5px;
+  }
+}
+
 .logo {
   position: relative;
   display: flex;
