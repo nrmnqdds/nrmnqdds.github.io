@@ -9,6 +9,17 @@ new fullpage("#fullpage", {
 
 });
 
+function openNav(){
+  var x = document.getElementById("myLinks");
+  var y = document.querySelector(".topnav");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+    y.style.display = "block";
+  }
+}
+
 class TypeIt {
 	constructor(text, container, speed) {
 		this.text = text;
