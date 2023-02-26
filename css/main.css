@@ -59,17 +59,17 @@
   margin: 0;
 }
 
-.slide1 {
+.slides1 {
   display: flex;
   justify-content: center;
   align-items: center;
   /** Layered Animation **/
 }
-.slide1 .animation-wrapper {
+.slides1 .animation-wrapper {
   width: 80%;
   padding-bottom: 40%;
 }
-.slide1 .layered-animations2 {
+.slides1 .layered-animations {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -79,9 +79,8 @@
   width: 1100px;
   height: 550px;
   margin: -275px 0 0 -550px;
-  opacity: 0.4;
 }
-.slide1 .layered-animations2 .shape {
+.slides1 .layered-animations .shape {
   position: absolute;
   top: 50%;
   overflow: visible;
@@ -92,24 +91,24 @@
   stroke-width: 1px;
   fill: url(#shapesGradient);
 }
-.slide1 .layered-animations2 .small.shape {
+@media (min-width: 740px) {
+  .slides1 .layered-animations .shape {
+    stroke-width: 0.5px;
+  }
+}
+.slides1 .layered-animations .small.shape {
   width: 64px;
   height: 64px;
   margin-top: -32px;
-  stroke: orangered;
-  fill: orangered;
+  stroke: currentColor;
+  fill: currentColor;
 }
-.slide1 .layered-animations2 .x-small.shape {
+.slides1 .layered-animations .x-small.shape {
   width: 32px;
   height: 32px;
   margin-top: -16px;
-  stroke: orangered;
-  fill: orangered;
-}
-@media (min-width: 740px) {
-  .slide1 .layered-animations2 .shape {
-    stroke-width: 0.5px;
-  }
+  stroke: currentColor;
+  fill: currentColor;
 }
 
 .logo {

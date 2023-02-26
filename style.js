@@ -132,7 +132,7 @@ function fitElementToParent(el, padding) {
 var layeredAnimation = (function() {
 
   var transformEls = document.querySelectorAll('.transform-progress');
-  var layeredAnimationEl = document.querySelector('.layered-animations2');
+  var layeredAnimationEl = document.querySelector('.layered-animations');
   var shapeEls = layeredAnimationEl.querySelectorAll('.shape');
   var triangleEl = layeredAnimationEl.querySelector('polygon');
   var trianglePoints = triangleEl.getAttribute('points').split(' ');

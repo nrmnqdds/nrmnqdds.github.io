@@ -62,18 +62,18 @@
   }
 }
 
-.slide1{
+.slides1{
   display: flex;
   justify-content: center;
   align-items: center;
   .animation-wrapper {
-    width: 80%;
-    padding-bottom: 40%;
-  }
-  
+  width: 80%;
+  padding-bottom: 40%;
+}
+
   /** Layered Animation **/
-  
-  .layered-animations2 {
+
+  .layered-animations {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -83,38 +83,41 @@
     width: 1100px;
     height: 550px;
     margin: -275px 0 0 -550px;
-    opacity: 0.4;
-    .shape {
-      position: absolute;
-      top: 50%;
-      overflow: visible;
-      width: 280px;
-      height: 280px;
-      margin-top: -140px;
-      stroke: transparent;
-      stroke-width: 1px;
-      fill: url(#shapesGradient);
-    }
-    .small.shape {
-      width: 64px;
-      height: 64px;
-      margin-top: -32px;
-      stroke: orangered;
-      fill: orangered;
-    }
-    .x-small.shape {
-      width: 32px;
-      height: 32px;
-      margin-top: -16px;
-      stroke: orangered;
-      fill: orangered;
-    }
   }
+
+  .layered-animations .shape {
+    position: absolute;
+    top: 50%;
+    overflow: visible;
+    width: 280px;
+    height: 280px;
+    margin-top: -140px;
+    stroke: transparent;
+    stroke-width: 1px;
+    fill: url(#shapesGradient);
+  }
+
   @media (min-width: 740px) {
-    .layered-animations2 .shape {
+    .layered-animations .shape {
       stroke-width: .5px;
     }
   }
+
+  .layered-animations .small.shape {
+    width: 64px;
+    height: 64px;
+    margin-top: -32px;
+    stroke: currentColor;
+    fill: currentColor;
+  }
+
+  .layered-animations .x-small.shape {
+    width: 32px;
+    height: 32px;
+    margin-top: -16px;
+    stroke: currentColor;
+    fill: currentColor;
+}
  
 }
 
