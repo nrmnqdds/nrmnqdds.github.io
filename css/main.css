@@ -48,16 +48,23 @@
   letter-spacing: 0.05rem;
   font-size: xx-large;
   line-height: 0cap;
-  text-shadow: 2px 2px #FF0000;
+  text-shadow: 2px 2px #ff0000;
 }
 .greetings p {
   color: white;
   font-family: "IBM Plex Mono", monospace;
-  font-weight: bold;
   letter-spacing: 0.075rem;
   font-size: small;
   line-height: 0cap;
   margin: 0;
+}
+
+.logo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
 }
 
 .s2 {
