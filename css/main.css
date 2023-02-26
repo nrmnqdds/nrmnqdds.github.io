@@ -76,6 +76,7 @@
   transition-duration: 500ms;
 }
 .slides1 .left .tttcard:hover {
+  cursor: pointer;
   transform: scale(1.1);
 }
 .slides1 .right {

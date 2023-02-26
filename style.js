@@ -113,6 +113,3 @@ var sphereAnimation = (function () {
 })();
 
 //page2
-document.querySelector("#tttcard").onclick=()=>{
-  window.open("/tictactoe");
-}
