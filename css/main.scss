@@ -75,6 +75,11 @@
       border-radius: 10px;
       text-decoration: none;
       transition-duration: 500ms;
+      img{
+        object-fit: contain;
+        width: 300px;
+        padding: 0;
+      }
     }
     .tttcard:hover{
       cursor: pointer;
@@ -105,22 +110,3 @@
   }
 }
 
-.logo{
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-.s2 {
-  background-color: blue;
-}
-
-.s3 {
-  background-color: red;
-}
-
-span {
-  background: white !important;
-}
