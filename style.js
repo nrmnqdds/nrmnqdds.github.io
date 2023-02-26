@@ -7,14 +7,30 @@ new fullpage("#fullpage", {
   verticalCentered: true,
 });
 
-anime({
-  targets: "#hello path",
-  strokeDashoffset: [anime.setDashoffset, 0],
-  easing: "easeInOutSine",
-  duration: 5000,
-  direction: "alternate",
-  loop: true,
-});
+class TypeIt {
+	constructor(text, container, speed) {
+		this.text = text;
+		this.container = container;
+		this.speed = speed;
+		this.current = 0;
+	}
+	
+	run() {
+		const cont = document.querySelector(this.container);
+		cont.append(this.text[this.current]);
+		this.current++;
+		if (this.current < this.text.length) {
+			window.setTimeout( () => {
+				this.run();
+			}, this.speed);
+		}
+	}
+}
+
+// the code below is just for the demo
+
+const demoText = new TypeIt('Hi, I am Quddus. Welcome to my profile.', '.text .content', 50);
+demoText.run();
 
 function fitElementToParent(el, padding) {
   var timeout = null;

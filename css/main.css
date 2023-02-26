@@ -50,13 +50,32 @@
   line-height: 0cap;
   text-shadow: 2px 2px #ff0000;
 }
-.greetings p {
+.greetings .text {
   color: white;
   font-family: "IBM Plex Mono", monospace;
   letter-spacing: 0.075rem;
   font-size: small;
   line-height: 0cap;
   margin: 0;
+}
+.greetings .text .content {
+  display: inline;
+}
+.greetings .text .cursor {
+  display: inline-block;
+  font-weight: bolder;
+  animation: blink 0.5s infinite linear;
+}
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .slides1 {
@@ -71,15 +90,27 @@
 }
 .slides1 .left .tttcard {
   background-color: white;
+  padding: 10px;
   border-radius: 10px;
   text-decoration: none;
   transition-duration: 500ms;
+  overflow: hidden;
+  margin: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 .slides1 .left .tttcard img {
   -o-object-fit: contain;
      object-fit: contain;
   width: 300px;
   padding: 0;
+  border-radius: 10px;
+}
+.slides1 .left .tttcard p {
+  font-family: "Roboto Condensed", sans-serif;
+  line-height: 0;
 }
 .slides1 .left .tttcard:hover {
   cursor: pointer;

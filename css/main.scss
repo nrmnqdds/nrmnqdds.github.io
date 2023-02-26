@@ -52,13 +52,33 @@
     line-height: 0cap;
     text-shadow: 2px 2px #ff0000;
   }
-  p {
+  .text {
     color: white;
     font-family: "IBM Plex Mono", monospace;
     letter-spacing: 0.075rem;
     font-size: small;
     line-height: 0cap;
     margin: 0;
+    .content{
+      display: inline;
+    }
+    .cursor{
+      display: inline-block;
+      font-weight: bolder;
+      
+      animation: blink .5s infinite linear;
+    }
+  }
+  @keyframes blink{
+    0%{
+      opacity: 1;
+    }
+    99%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 1;
+    }
   }
 }
 
@@ -72,13 +92,25 @@
     justify-content: center;
     .tttcard{
       background-color: white;
+      padding: 10px;
       border-radius: 10px;
       text-decoration: none;
       transition-duration: 500ms;
+      overflow: hidden;
+      margin: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
       img{
         object-fit: contain;
         width: 300px;
         padding: 0;
+        border-radius: 10px;
+      }
+      p{
+        font-family: 'Roboto Condensed', sans-serif;
+        line-height: 0;
       }
     }
     .tttcard:hover{
@@ -109,4 +141,5 @@
     }
   }
 }
+
 
