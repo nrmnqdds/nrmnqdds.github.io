@@ -3,8 +3,10 @@ new fullpage("#fullpage", {
   autoScrolling: true,
   scrollHorizontally: true,
   navigation: true,
-  navigationTooltips: ["home", "about", "contact"],
+  navigationTooltips: ["home", "skills", "projects", "contact"],
   verticalCentered: true,
+  fixedElements: '#toggle',
+
 });
 
 class TypeIt {
