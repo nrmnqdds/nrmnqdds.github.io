@@ -100,7 +100,7 @@ var sphereAnimation = (function () {
 
   var introAnimation = anime
     .timeline({
-      autoplay: false,
+      autoplay: true,
     })
     .add(
       {
