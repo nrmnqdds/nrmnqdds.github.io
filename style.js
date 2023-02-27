@@ -15,7 +15,7 @@ function openNav() {
     x.style.display = "none";
   } else {
     x.style.display = "block";
-    y.style.display = "block";
+    y.style.display = "flex";
   }
 }
 
