@@ -8,6 +8,7 @@ new fullpage("#fullpage", {
   fixedElements: "#toggle",
 });
 
+let fullscreen = document.querySelector("#fullpage");
 function openNav() {
   var x = document.getElementById("myLinks");
   var y = document.querySelector(".topnav");
@@ -145,3 +146,13 @@ var sphereAnimation = (function () {
 })();
 
 //page2
+
+var timeline2 = anime({
+  targets: '.askill path',
+  strokeDashoffset: [anime.setDashoffset, 0],
+  easing: 'easeInOutSine',
+  duration: 1300,
+  delay: function(el, i) { return i * 250 },
+  direction: 'alternate',
+  loop: true
+});

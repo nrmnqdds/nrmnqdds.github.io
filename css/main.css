@@ -201,4 +201,24 @@
   font-family: "IBM Plex Mono", monospace;
   letter-spacing: 0.05rem;
   margin: 0;
+}
+
+.s2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.s2 h4 {
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  color: white;
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: bold;
+  font-size: 3rem;
+  letter-spacing: 0.05rem;
+  text-shadow: 2px 2px #ff0000;
 }/*# sourceMappingURL=main.css.map */
