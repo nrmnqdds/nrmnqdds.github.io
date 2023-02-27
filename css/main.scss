@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Roboto+Condensed:wght@700&family=Ubuntu+Mono:wght@700&display=swap");
+@import "../node_modules/include-media/dist/include-media";
 
 //hamburger
 
@@ -117,6 +118,9 @@
     font-size: xx-large;
     line-height: 0cap;
     text-shadow: 2px 2px #ff0000;
+    @include media(">phone", "<=tablet") {
+      font-size: medium;
+    }
   }
   .text {
     color: white;
@@ -125,6 +129,9 @@
     font-size: small;
     line-height: 0cap;
     margin: 0;
+    @include media(">phone", "<=tablet") {
+      font-size: xx-small;
+    }
     .content {
       display: inline;
     }
@@ -193,6 +200,9 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    @include media(">phone", "<=tablet") {
+      display: none;
+    }
     h4 {
       color: white;
       font-family: "IBM Plex Mono", monospace;
@@ -206,6 +216,7 @@
       font-family: "IBM Plex Mono", monospace;
       letter-spacing: 0.05rem;
       margin: 0;
+      
     }
   }
 }
@@ -214,9 +225,10 @@
 
 .page2{
   display: flex;
-  align-items: center;
+  // align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  padding: 30px;
   h4{
     position: absolute;
     top: 8%;
@@ -239,12 +251,15 @@
     padding: 10px;
     border-radius: 10px;
     margin: 5px;
-    transition-duration: 200ms;
+    transition-duration: 300ms;
     .skilltext{
       color: white;
       font-family: "IBM Plex Mono", monospace;
       margin: 0;
       width: 70%;
+      @include media(">phone", "<=tablet") {
+        display: none;
+      }
     }
   }
   .skillcard:hover{

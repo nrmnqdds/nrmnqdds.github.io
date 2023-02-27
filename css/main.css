@@ -115,6 +115,11 @@
   line-height: 0cap;
   text-shadow: 2px 2px #ff0000;
 }
+@media (min-width: 321px) and (max-width: 768px) {
+  .greetings h4 {
+    font-size: medium;
+  }
+}
 .greetings .text {
   color: white;
   font-family: "IBM Plex Mono", monospace;
@@ -122,6 +127,11 @@
   font-size: small;
   line-height: 0cap;
   margin: 0;
+}
+@media (min-width: 321px) and (max-width: 768px) {
+  .greetings .text {
+    font-size: xx-small;
+  }
 }
 .greetings .text .content {
   display: inline;
@@ -188,6 +198,11 @@
   justify-content: center;
   flex-direction: column;
 }
+@media (min-width: 321px) and (max-width: 768px) {
+  .slides1 .right {
+    display: none;
+  }
+}
 .slides1 .right h4 {
   color: white;
   font-family: "IBM Plex Mono", monospace;
@@ -205,9 +220,9 @@
 
 .page2 {
   display: flex;
-  align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  padding: 30px;
 }
 .page2 h4 {
   position: absolute;
@@ -231,13 +246,18 @@
   padding: 10px;
   border-radius: 10px;
   margin: 5px;
-  transition-duration: 200ms;
+  transition-duration: 300ms;
 }
 .page2 .skillcard .skilltext {
   color: white;
   font-family: "IBM Plex Mono", monospace;
   margin: 0;
   width: 70%;
+}
+@media (min-width: 321px) and (max-width: 768px) {
+  .page2 .skillcard .skilltext {
+    display: none;
+  }
 }
 .page2 .skillcard:hover {
   cursor: pointer;

@@ -201,3 +201,21 @@ anime({
   direction: 'alternate',
   loop: true
 });
+anime({
+  targets: '.blackhat path',
+  strokeDashoffset: [anime.setDashoffset, 0],
+  easing: 'easeInOutSine',
+  duration: 1200,
+  delay: function(el, i) { return i * 200 },
+  direction: 'alternate',
+  loop: true
+});
+anime({
+  targets: '.linux path',
+  strokeDashoffset: [anime.setDashoffset, 0],
+  easing: 'easeInOutSine',
+  duration: 1500,
+  delay: function(el, i) { return i * 100 },
+  direction: 'alternate',
+  loop: true
+});
