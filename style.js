@@ -147,12 +147,57 @@ var sphereAnimation = (function () {
 
 //page2
 
-var timeline2 = anime({
-  targets: '.askill path',
+anime({
+  targets: '.psd path',
   strokeDashoffset: [anime.setDashoffset, 0],
   easing: 'easeInOutSine',
   duration: 1300,
   delay: function(el, i) { return i * 250 },
+  direction: 'alternate',
+  loop: true
+});
+anime({
+  targets: '.ai path',
+  strokeDashoffset: [anime.setDashoffset, 0],
+  easing: 'easeInOutSine',
+  duration: 1000,
+  delay: function(el, i) { return i * 250 },
+  direction: 'alternate',
+  loop: true
+});
+anime({
+  targets: '.ppr path',
+  strokeDashoffset: [anime.setDashoffset, 0],
+  easing: 'easeInOutSine',
+  duration: 1500,
+  delay: function(el, i) { return i * 200 },
+  direction: 'alternate',
+  loop: true
+});
+anime({
+  targets: '.html path',
+  strokeDashoffset: [anime.setDashoffset, 0],
+  easing: 'easeInOutSine',
+  duration: 1100,
+  delay: function(el, i) { return i * 200 },
+  direction: 'alternate',
+  loop: true
+});
+anime({
+  targets: '.css path',
+  strokeDashoffset: [anime.setDashoffset, 0],
+  easing: 'easeInOutSine',
+  duration: 1400,
+  delay: function(el, i) { return i * 200 },
+  direction: 'alternate',
+  loop: true
+});
+anime({
+  targets: '.js path',
+  strokeDashoffset: [anime.setDashoffset, 0],
+  easing: 'easeInOutSine',
+  duration: 1200,
+  delay: function(el, i) { return i * 200 },
   direction: 'alternate',
   loop: true
 });

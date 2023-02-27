@@ -212,7 +212,7 @@
 
 //page2
 
-.s2{
+.page2{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -229,5 +229,29 @@
     font-size: 3rem;
     letter-spacing: 0.05rem;
     text-shadow: 2px 2px #ff0000;
+  }
+  .skillcard{
+    display: flex;
+    flex-direction: row;
+    background-color: #111111;
+    border: white 1px solid;
+    width: 30%;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px;
+    transition-duration: 200ms;
+    .skilltext{
+      color: white;
+      font-family: "IBM Plex Mono", monospace;
+      margin: 0;
+      width: 70%;
+    }
+  }
+  .skillcard:hover{
+    // box-shadow: 2px 2px #ff0000;
+    cursor: pointer;
+    transform: scale(1.1);
+    overflow: hidden;
+    z-index: 5;
   }
 }
