@@ -5,11 +5,10 @@ new fullpage("#fullpage", {
   navigation: true,
   navigationTooltips: ["home", "skills", "projects", "contact"],
   verticalCentered: true,
-  fixedElements: '#toggle',
-
+  fixedElements: "#toggle",
 });
 
-function openNav(){
+function openNav() {
   var x = document.getElementById("myLinks");
   var y = document.querySelector(".topnav");
   if (x.style.display === "block") {
@@ -21,28 +20,32 @@ function openNav(){
 }
 
 class TypeIt {
-	constructor(text, container, speed) {
-		this.text = text;
-		this.container = container;
-		this.speed = speed;
-		this.current = 0;
-	}
-	
-	run() {
-		const cont = document.querySelector(this.container);
-		cont.append(this.text[this.current]);
-		this.current++;
-		if (this.current < this.text.length) {
-			window.setTimeout( () => {
-				this.run();
-			}, this.speed);
-		}
-	}
+  constructor(text, container, speed) {
+    this.text = text;
+    this.container = container;
+    this.speed = speed;
+    this.current = 0;
+  }
+
+  run() {
+    const cont = document.querySelector(this.container);
+    cont.append(this.text[this.current]);
+    this.current++;
+    if (this.current < this.text.length) {
+      window.setTimeout(() => {
+        this.run();
+      }, this.speed);
+    }
+  }
 }
 
 // the code below is just for the demo
 
-const demoText = new TypeIt('Hi, I am Quddus. Welcome to my profile.', '.text .content', 50);
+const demoText = new TypeIt(
+  "Hi, I am Quddus. Welcome to my profile.",
+  ".text .content",
+  50
+);
 demoText.run();
 
 function fitElementToParent(el, padding) {

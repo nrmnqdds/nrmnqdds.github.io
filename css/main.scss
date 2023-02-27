@@ -2,10 +2,10 @@
 
 //hamburger
 
-.button_container{
-  position:absolute;
-  top:8%;
-  right:2%;
+.button_container {
+  position: absolute;
+  top: 8%;
+  right: 2%;
   height: 10px;
 }
 
@@ -51,12 +51,12 @@
   stroke-width: 6;
 }
 
-.topnav{
+.topnav {
   #myLinks {
     display: none;
     position: absolute;
     z-index: 3;
-    a{
+    a {
       text-decoration: none;
       color: white;
     }
@@ -124,38 +124,38 @@
     font-size: small;
     line-height: 0cap;
     margin: 0;
-    .content{
+    .content {
       display: inline;
     }
-    .cursor{
+    .cursor {
       display: inline-block;
       font-weight: bolder;
-      
-      animation: blink .5s infinite linear;
+
+      animation: blink 0.5s infinite linear;
     }
   }
-  @keyframes blink{
-    0%{
+  @keyframes blink {
+    0% {
       opacity: 1;
     }
-    99%{
+    99% {
       opacity: 0;
     }
-    100%{
+    100% {
       opacity: 1;
     }
   }
 }
 
-.slides1{
+.slides1 {
   display: flex;
   flex-direction: row;
-  .left{
+  .left {
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    .tttcard{
+    .tttcard {
       background-color: white;
       padding: 10px;
       border-radius: 10px;
@@ -167,30 +167,30 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      img{
+      img {
         object-fit: contain;
         width: 300px;
         padding: 0;
         border-radius: 10px;
       }
-      p{
-        font-family: 'Roboto Condensed', sans-serif;
+      p {
+        font-family: "Roboto Condensed", sans-serif;
         line-height: 0;
       }
     }
-    .tttcard:hover{
+    .tttcard:hover {
       cursor: pointer;
       transform: scale(1.1);
       // transition-duration: 500ms;
     }
   }
-  .right{
+  .right {
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    h4{
+    h4 {
       color: white;
       font-family: "IBM Plex Mono", monospace;
       font-weight: bold;
@@ -198,7 +198,7 @@
       letter-spacing: 0.05rem;
       margin: 0;
     }
-    p{
+    p {
       color: white;
       font-family: "IBM Plex Mono", monospace;
       letter-spacing: 0.05rem;
@@ -206,5 +206,3 @@
     }
   }
 }
-
-
