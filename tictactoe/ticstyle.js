@@ -152,9 +152,6 @@ function startgame() {
   }
   
 }
-
-const sleep = ms => new Promise(r => setTimeout(r, ms));
-
 // 0 1 2
 // 3 4 5
 // 6 7 8
