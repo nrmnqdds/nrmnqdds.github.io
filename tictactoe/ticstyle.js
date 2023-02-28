@@ -5,9 +5,8 @@ function startgame() {
   let button = document.querySelector("#start");
 
   let clicked = false;
-  // let gameEnd = false;
+  let gameEnd = false;
   let filled = 0;
-  // let hasMoved = false;
 
   let grid1 = document.querySelector("#grid1");
   let grid2 = document.querySelector("#grid2");
@@ -39,13 +38,7 @@ function startgame() {
         roulette = 0;
       }
     } else {
-      for (let i = 0; i < grids.length; i++) {
-        grids[i].innerHTML = null;
-      }
-      filled = 0;
-      turn.innerHTML = null;
-      button.innerHTML = "start";
-      startgame();
+      endgame();
     }
   };
 
@@ -62,6 +55,7 @@ function startgame() {
           playerturn = false;
           computerturn = true;
           swapturn(playerturn, computerturn);
+          whoWin();
         }
       };
     }
@@ -79,6 +73,7 @@ function startgame() {
         computerturn = false;
         playerturn = true;
         swapturn(playerturn, computerturn);
+        whoWin();
         break;
       }
       if (filled == 9) {
@@ -89,44 +84,76 @@ function startgame() {
   }
 
   function swapturn(playerturn, computerturn) {
+    if (gameEnd) {
+      return;
+    }
     if (filled == 9) {
       whoWin();
-    }else if (playerturn && !computerturn) {
+    } else if (playerturn && !computerturn) {
       playermove();
     } else {
       computermove();
     }
   }
 
-  function whoWin(){
-    if(
-      (grids[0].innerHTML===grids[1].innerHTML===grids[2].innerHTML === "X") ||
-      (grids[0].innerHTML===grids[3].innerHTML===grids[6].innerHTML === "X") ||
-      (grids[0].innerHTML===grids[4].innerHTML===grids[8].innerHTML === "X") ||
-      (grids[1].innerHTML===grids[4].innerHTML===grids[7].innerHTML === "X") ||
-      (grids[2].innerHTML===grids[5].innerHTML===grids[8].innerHTML === "X") ||
-      (grids[2].innerHTML===grids[4].innerHTML===grids[6].innerHTML === "X") ||
-      (grids[3].innerHTML===grids[4].innerHTML===grids[5].innerHTML === "X") ||
-      (grids[6].innerHTML===grids[7].innerHTML===grids[8].innerHTML === "X")
-    ){
-      turn.innerHTML = "you win!!";
-    }else if(
-      (grids[0].innerHTML===grids[1].innerHTML===grids[2].innerHTML === "O") ||
-      (grids[0].innerHTML===grids[3].innerHTML===grids[6].innerHTML === "O") ||
-      (grids[0].innerHTML===grids[4].innerHTML===grids[8].innerHTML === "O") ||
-      (grids[1].innerHTML===grids[4].innerHTML===grids[7].innerHTML === "O") ||
-      (grids[2].innerHTML===grids[5].innerHTML===grids[8].innerHTML === "O") ||
-      (grids[2].innerHTML===grids[4].innerHTML===grids[6].innerHTML === "O") ||
-      (grids[3].innerHTML===grids[4].innerHTML===grids[5].innerHTML === "O") ||
-      (grids[6].innerHTML===grids[7].innerHTML===grids[8].innerHTML === "O")
-    ){
-      turn.innerHTML = "computer win!!";
-    }else{
-      turn.innerHTML = "draw!!";
+  async function whoWin() {
+    if (
+      (grids[0].innerHTML === grids[1].innerHTML &&
+        grids[1].innerHTML === grids[2].innerHTML &&
+        grids[0].innerHTML !== "") ||
+      (grids[3].innerHTML === grids[4].innerHTML &&
+        grids[4].innerHTML === grids[5].innerHTML &&
+        grids[3].innerHTML !== "") ||
+      (grids[6].innerHTML === grids[7].innerHTML &&
+        grids[7].innerHTML === grids[8].innerHTML &&
+        grids[6].innerHTML !== "") ||
+      (grids[0].innerHTML === grids[3].innerHTML &&
+        grids[3].innerHTML === grids[6].innerHTML &&
+        grids[0].innerHTML !== "") ||
+      (grids[1].innerHTML === grids[4].innerHTML &&
+        grids[4].innerHTML === grids[7].innerHTML &&
+        grids[1].innerHTML !== "") ||
+      (grids[2].innerHTML === grids[5].innerHTML &&
+        grids[5].innerHTML === grids[8].innerHTML &&
+        grids[2].innerHTML !== "") ||
+      (grids[0].innerHTML === grids[4].innerHTML &&
+        grids[4].innerHTML === grids[8].innerHTML &&
+        grids[0].innerHTML !== "") ||
+      (grids[2].innerHTML === grids[4].innerHTML &&
+        grids[4].innerHTML === grids[6].innerHTML &&
+        grids[2].innerHTML !== "")
+    ) {
+      if (playerturn) {
+        turn.innerHTML = "You Win!";
+        await new Promise((r) => setTimeout(r, 3000));
+        endgame();
+      } else {
+        turn.innerHTML = "Computer Wins!";
+        await new Promise((r) => setTimeout(r, 3000));
+        endgame();
+      }
+      for (let i = 0; i < grids.length; i++) {
+        grids[i].onclick = function () {};
+      }
+    } else if (filled === 9) {
+      turn.innerHTML = "It's a draw!";
     }
   }
   
+  function endgame(){
+    clicked = false;
+    for (let i = 0; i < grids.length; i++) {
+      grids[i].innerHTML = null;
+    }
+    filled = 0;
+    turn.innerHTML = null;
+    button.innerHTML = "start";
+    startgame();
+  }
+  
 }
+
+const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 // 0 1 2
 // 3 4 5
