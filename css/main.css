@@ -69,15 +69,22 @@
   justify-content: center;
   align-items: center;
 }
+.page1 .wavebg {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  height: 30%;
+  z-index: 1;
+}
 
 .animation-wrapper {
   width: 50%;
   padding-bottom: 50%;
   position: absolute;
-  z-index: 1;
+  z-index: 3;
   top: 10;
   left: 10;
-  opacity: 0.4;
+  opacity: 1;
 }
 
 .sphere-animation {
@@ -104,7 +111,8 @@
 }
 .greetings {
   position: relative;
-  z-index: 2;
+  z-index: 4;
+  opacity: 2;
 }
 .greetings h4 {
   color: white;
@@ -156,6 +164,21 @@
 .slides1 {
   display: flex;
   flex-direction: row;
+}
+.slides1 .wavebg {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 20%;
+  z-index: 1;
+  transform: rotate(180deg);
+}
+.slides1 .stringbg {
+  position: absolute;
+  bottom: 30px;
+  width: 100vw;
+  height: 50%;
+  z-index: 1;
 }
 .slides1 .left {
   flex: 1;
@@ -224,8 +247,25 @@
   flex-wrap: wrap;
   padding: 30px;
 }
+.page2 .wavebg {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 20%;
+  z-index: 1;
+  transform: rotate(180deg);
+}
+.page2 .wavebg2 {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  height: 20%;
+  z-index: 1;
+}
 .page2 h4 {
   position: absolute;
+  z-index: 4;
+  opacity: 2;
   top: 8%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -240,13 +280,14 @@
 .page2 .skillcard {
   display: flex;
   flex-direction: row;
-  background-color: #111111;
-  border: white 1px solid;
+  background-color: #151515;
+  border: #202020 1px solid;
   width: 30%;
   padding: 10px;
   border-radius: 10px;
   margin: 5px;
-  transition-duration: 300ms;
+  transition: 300ms;
+  z-index: 4;
 }
 .page2 .skillcard .skilltext {
   color: white;
@@ -262,6 +303,7 @@
 .page2 .skillcard:hover {
   cursor: pointer;
   transform: scale(1.1);
+  background: linear-gradient(140deg, rgb(21, 21, 21) 0%, rgb(25, 25, 25) 69%, rgb(43, 43, 43) 100%);
   overflow: hidden;
   z-index: 5;
 }/*# sourceMappingURL=main.css.map */
