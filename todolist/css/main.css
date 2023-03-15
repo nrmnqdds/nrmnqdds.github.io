@@ -1,1 +1,71 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");/*# sourceMappingURL=main.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+* {
+  font-family: "Poppins";
+}
+
+body {
+  background-color: #212121;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.addwrapper {
+  justify-self: flex-start;
+  margin: 50px;
+  background-color: yellow;
+  padding: 15px;
+  border-radius: 10px;
+  width: 500px;
+}
+@media (min-width: 321px) and (max-width: 768px) {
+  .addwrapper {
+    width: 70vw;
+  }
+}
+.addwrapper input {
+  width: 90%;
+  border: 1px solid gold;
+  border-radius: 5px;
+  padding: 5px 0 5px 10px;
+}
+@media (min-width: 321px) and (max-width: 768px) {
+  .addwrapper input {
+    width: 80%;
+  }
+}
+.addwrapper button {
+  color: white;
+  background-color: aqua;
+  font-weight: bold;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 10px;
+  transition: 200ms;
+}
+.addwrapper button:hover {
+  cursor: pointer;
+  background-color: aquamarine;
+  transform: scale(1.2);
+  transition: 0ms;
+}
+.addwrapper button:active {
+  transform: scale(1);
+}
+
+.todocontainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.task {
+  display: grid;
+  place-items: center;
+  color: white;
+  padding: 20px;
+  border: none;
+  border-radius: 10px;
+  margin: 10px;
+  width: 200px;
+}/*# sourceMappingURL=main.css.map */
