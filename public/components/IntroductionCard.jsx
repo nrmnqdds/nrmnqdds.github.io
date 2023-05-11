@@ -26,10 +26,10 @@ class IntroductionCard extends Component {
         <motion.li
           animate={{
             y: [20, 0],
-            opacity: [0, 0.2, 0.5, 1],
+            opacity: [0, 0.1, 0.2, 0.3, 1],
           }}
           transition={{
-            duration: 2,
+            duration: 5,
             delay: 0.1,
             ease: [0, 0.71, 0.2, 1.01],
           }}
@@ -48,7 +48,7 @@ class IntroductionCard extends Component {
           }}
           transition={{
             duration: 3,
-            delay: 0.2,
+            delay: 0.3,
             ease: [0, 0.71, 0.2, 1.01],
           }}
         >
@@ -68,7 +68,7 @@ class IntroductionCard extends Component {
           }}
           transition={{
             duration: 3,
-            delay: 0.3,
+            delay: 0.5,
             ease: [0, 0.71, 0.2, 1.01],
           }}
         >
@@ -93,7 +93,7 @@ class IntroductionCard extends Component {
           }}
           transition={{
             duration: 3,
-            delay: 0.4,
+            delay: 0.7,
             ease: [0, 0.71, 0.2, 1.01],
           }}
           className="flex gap-4 w-full"
@@ -101,8 +101,13 @@ class IntroductionCard extends Component {
           <ProjectCard
             title="IIUM-Student-Services App"
             link="/projects/IIUM-Student-Services"
+            image="/images/65968.jpg"
           />
-          <ProjectCard title="RTWordle" link="/projects/RTWordle" />
+          <ProjectCard
+            title="RTWordle"
+            link="/projects/RTWordle"
+            image="/images/download20230100021620.png"
+          />
         </motion.li>
       </motion.ul>
     );
