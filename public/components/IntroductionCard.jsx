@@ -19,27 +19,18 @@ class IntroductionCard extends Component {
     return (
       <motion.ul
         className="bg-[#121212] w-[95%] rounded-[40px] flex flex-col items-center p-5 overflow-hidden"
-        variants={{
-          // hidden: { opacity: 1, scale: 0 },
-          visible: {
-            opacity: 1,
-            scale: 1,
-            transition: {
-              delayChildren: 0.3,
-              staggerChildren: 0.2,
-            },
-          },
+        transition={{
+          delayChildren: 0.3,
+          staggerChildren: 0.2,
         }}
-        initial="hidden"
-        animate="visible"
       >
         <motion.li
-          variants={{
-            hidden: { y: 20, opacity: 0 },
-            visible: {
-              y: 0,
-              opacity: 1,
-            },
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{
+            duration: 2,
+            delay: 0.5,
+            ease: [0, 0.71, 0.2, 1.01],
           }}
         >
           <h1
@@ -50,12 +41,12 @@ class IntroductionCard extends Component {
         </motion.li>
         <motion.li
           className="flex items-center w-[70%] m-4"
-          variants={{
-            hidden: { y: 20, opacity: 0 },
-            visible: {
-              y: 0,
-              opacity: 1,
-            },
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{
+            duration: 2,
+            delay: 1,
+            ease: [0, 0.71, 0.2, 1.01],
           }}
         >
           <p
