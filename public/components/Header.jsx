@@ -5,7 +5,7 @@ class Header extends Component {
   state = {};
   render() {
     return (
-      <header>
+      <header className="m-5">
         <div className="flex flex-row items-center">
           <SocialIcon
             url="https://twitter.com/nrmnqdds"
