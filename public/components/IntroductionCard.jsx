@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import localFont from "next/font/local";
 import ProjectCard from "./ProjectCard";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { AiOutlineArrowRight } from "react-icons/ai";
 
 const SFMedium = localFont({ src: "../fonts/SF-Pro-Display-Medium.otf" });
@@ -25,11 +24,13 @@ class IntroductionCard extends Component {
         }}
       >
         <motion.li
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
+          animate={{
+            y: [20, 0],
+            opacity: [0, 0.2, 0.5, 1],
+          }}
           transition={{
             duration: 2,
-            delay: 0.5,
+            delay: 0.1,
             ease: [0, 0.71, 0.2, 1.01],
           }}
         >
@@ -41,11 +42,13 @@ class IntroductionCard extends Component {
         </motion.li>
         <motion.li
           className="flex items-center w-[70%] m-4"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
+          animate={{
+            y: [20, 0],
+            opacity: [0, 0.2, 0.5, 1],
+          }}
           transition={{
-            duration: 2,
-            delay: 1,
+            duration: 3,
+            delay: 0.2,
             ease: [0, 0.71, 0.2, 1.01],
           }}
         >
@@ -58,27 +61,49 @@ class IntroductionCard extends Component {
           </p>
         </motion.li>
 
-        <motion.button
-          className="bg-gradient-to-b from-orange-400 to-red-500 py-3 px-4 rounded-full flex flex-row items-center"
-          whileHover={{ scale: 1.1 }}
-          transition={{ type: "spring", stiffness: 400, damping: 10 }}
-          whileTap={{ scale: 0.9 }}
+        <motion.li
+          animate={{
+            y: [20, 0],
+            opacity: [0, 0.2, 0.5, 1],
+          }}
+          transition={{
+            duration: 3,
+            delay: 0.3,
+            ease: [0, 0.71, 0.2, 1.01],
+          }}
         >
-          Contact Me
-          <AiOutlineArrowRight
-            color="rgb(252, 116, 66)"
-            size={20}
-            className="bg-white rounded-full mx-2"
+          <motion.button
+            className="bg-gradient-to-b from-orange-400 to-red-500 py-3 px-4 rounded-full flex flex-row items-center"
+            whileHover={{ scale: 1.1 }}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            Contact Me
+            <AiOutlineArrowRight
+              color="rgb(252, 116, 66)"
+              size={20}
+              className="bg-white rounded-full mx-2"
+            />
+          </motion.button>
+        </motion.li>
+        <motion.li
+          animate={{
+            y: [20, 0],
+            opacity: [0, 0.2, 0.5, 1],
+          }}
+          transition={{
+            duration: 3,
+            delay: 0.4,
+            ease: [0, 0.71, 0.2, 1.01],
+          }}
+          className="flex gap-4 w-full"
+        >
+          <ProjectCard
+            title="IIUM-Student-Services App"
+            link="/projects/IIUM-Student-Services"
           />
-        </motion.button>
-
-        <div className="flex flex-row">
-          <Link href="/projects/IIUM-Student-Services">
-            <ProjectCard title="IIUM-Student-Services App" />
-          </Link>
-
-          <ProjectCard title="RTWordle" />
-        </div>
+          <ProjectCard title="RTWordle" link="/projects/RTWordle" />
+        </motion.li>
       </motion.ul>
     );
   }
