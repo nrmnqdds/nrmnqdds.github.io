@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import localFont from "next/font/local";
 import ProjectCard from "./ProjectCard";
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { AiOutlineArrowRight } from "react-icons/ai";
 
 const SFMedium = localFont({ src: "../fonts/SF-Pro-Display-Medium.otf" });
 const GeneralSansSemiBold = localFont({
@@ -18,7 +20,7 @@ class IntroductionCard extends Component {
       <motion.ul
         className="bg-[#121212] w-[95%] rounded-[40px] flex flex-col items-center p-5 overflow-hidden"
         variants={{
-          hidden: { opacity: 1, scale: 0 },
+          // hidden: { opacity: 1, scale: 0 },
           visible: {
             opacity: 1,
             scale: 1,
@@ -66,18 +68,25 @@ class IntroductionCard extends Component {
         </motion.li>
 
         <motion.button
-          whileHover={{
-            scale: 1.2,
-            transition: { duration: 1 },
-          }}
+          className="bg-gradient-to-b from-orange-400 to-red-500 py-3 px-4 rounded-full flex flex-row items-center"
+          whileHover={{ scale: 1.1 }}
+          transition={{ type: "spring", stiffness: 400, damping: 10 }}
           whileTap={{ scale: 0.9 }}
         >
           Contact Me
+          <AiOutlineArrowRight
+            color="rgb(252, 116, 66)"
+            size={20}
+            className="bg-white rounded-full mx-2"
+          />
         </motion.button>
 
         <div className="flex flex-row">
-          <ProjectCard />
-          <ProjectCard />
+          <Link href="/projects/IIUM-Student-Services">
+            <ProjectCard title="IIUM-Student-Services App" />
+          </Link>
+
+          <ProjectCard title="RTWordle" />
         </div>
       </motion.ul>
     );
