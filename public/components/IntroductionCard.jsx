@@ -98,7 +98,7 @@ function IntroductionCard() {
         className="flex gap-4 w-full"
       >
         <ProjectCard
-          title="IIUM-Student-Services App"
+          title="IIUM-Student-Services"
           link="/projects/IIUM-Student-Services"
           image="/images/65968.jpg"
         />

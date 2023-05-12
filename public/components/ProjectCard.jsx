@@ -22,14 +22,21 @@ function ProjectCard({ title, link, image }) {
           fill={true}
           style={{ objectFit: "cover" }}
         />
-        <div className="absolute flex bottom-0 left-0 right-0 py-4 px-6 text-white z-10 justify-between items-center">
-          <p className={`${GeneralSansSemiBold.className} text-xl`}>{title}</p>
+        <div className="absolute flex flex-row bottom-0 w-full py-4 px-6 text-white z-10">
+          <div className="flex flex-1 items-center justify-start">
+            <p className={`${GeneralSansSemiBold.className} text-xl`}>
+              {title}
+            </p>
+          </div>
+
           {/* <AiOutlineArrowRight
               color="rgb(252, 116, 66)"
               size={20}
               className="text-white"
             /> */}
-          <LearnMoreButton />
+          <div className="flex flex-1 items-center justify-end">
+            <LearnMoreButton />
+          </div>
         </div>
       </button>
     </Link>
