@@ -18,16 +18,26 @@ function LearnMoreButton() {
     <motion.button
       className="flex items-center flex-row relative justify-center rounded-full bg-white p-2 w-auto overflow-hidden"
       whileHover={{ width: "50%" }}
-      transition={{ duration: 0.7 }}
+      initial={{ width: "auto" }}
+      animate={{
+        transition: { type: "tween", ease: "circOut", duration: 0.3 },
+      }}
+      exit={{
+        transition: {
+          type: "tween",
+          duration: 0.3,
+          ease: "circIn",
+        },
+      }}
       onHoverStart={() => setIsHover(true)}
       onHoverEnd={() => setIsHover(false)}
     >
       {isHover && (
         <motion.p
-          className={`${GeneralSansSemiBold.className} text-orange-600 whitespace-nowrap`}
+          className={`${GeneralSansSemiBold.className} text-orange-600 whitespace-nowrap m-0`}
           animate={{ opacity: 1, x: 0 }}
           initial={{ opacity: 0, x: "100%" }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 0.4 }}
         >
           Learn More
         </motion.p>
