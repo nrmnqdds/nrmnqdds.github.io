@@ -16,19 +16,21 @@ function LearnMoreButton() {
 
   return (
     <motion.button
-      className="flex items-center flex-row relative justify-center rounded-full bg-white p-2 w-auto overflow-hidden"
-      whileHover={{ width: "50%" }}
-      initial={{ width: "auto" }}
-      animate={{
+      className="flex items-center flex-row relative justify-center rounded-full bg-white p-2 overflow-hidden"
+      // style={{ minWidth: isHover ? "fit-content" : "auto" }}
+      whileHover={{
+        minWidth: "fit-content",
         transition: { type: "tween", ease: "circOut", duration: 0.3 },
       }}
       exit={{
+        width: "auto",
         transition: {
           type: "tween",
           duration: 0.3,
           ease: "circIn",
         },
       }}
+      initial={{ minWidth: "auto" }}
       onHoverStart={() => setIsHover(true)}
       onHoverEnd={() => setIsHover(false)}
     >
@@ -38,6 +40,7 @@ function LearnMoreButton() {
           animate={{ opacity: 1, x: 0 }}
           initial={{ opacity: 0, x: "100%" }}
           transition={{ duration: 0.4 }}
+          exit={{ type: "tween", duration: 0.3, ease: "circIn" }}
         >
           Learn More
         </motion.p>
