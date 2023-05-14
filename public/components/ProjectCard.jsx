@@ -15,12 +15,13 @@ function ProjectCard({ title, link, image }) {
     <Link href={`${link}`} className="flex-1 my-5">
       <button className="w-full h-[500px] bg-white relative rounded-[40px] overflow-hidden cursor-default">
         <Image
-          src={`${image}`}
+          src={image}
           // width={500}
           // height={500}
           alt="Picture of the author"
           fill={true}
           style={{ objectFit: "cover" }}
+          priority
         />
         <div className="absolute flex flex-row bottom-0 w-full py-4 px-6 text-white z-10">
           <div className="flex flex-1 items-center justify-start">
@@ -34,9 +35,9 @@ function ProjectCard({ title, link, image }) {
               size={20}
               className="text-white"
             /> */}
-          <div className="flex flex-1 items-center justify-end">
+          {/* <div className="flex flex-1 items-center justify-end">
             <LearnMoreButton />
-          </div>
+          </div> */}
         </div>
       </button>
     </Link>

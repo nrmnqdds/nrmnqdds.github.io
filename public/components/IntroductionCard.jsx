@@ -3,8 +3,9 @@ import localFont from "next/font/local";
 import ProjectCard from "./ProjectCard";
 import { motion } from "framer-motion";
 import { AiOutlineArrowRight } from "react-icons/ai";
+import ISS from "../images/65968.jpg";
+import RTW from "../images/download20230100021620.png";
 
-const SFMedium = localFont({ src: "../fonts/SF-Pro-Display-Medium.otf" });
 const GeneralSansSemiBold = localFont({
   src: "../fonts/GeneralSans-Semibold.otf",
 });
@@ -71,19 +72,9 @@ function IntroductionCard() {
           ease: [0, 0.71, 0.2, 1.01],
         }}
       >
-        <motion.button
-          className="bg-gradient-to-b from-orange-400 to-red-500 py-3 px-4 rounded-full flex flex-row items-center"
-          whileHover={{ scale: 1.1 }}
-          transition={{ type: "spring", stiffness: 400, damping: 10 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          Contact Me
-          <AiOutlineArrowRight
-            color="rgb(252, 116, 66)"
-            size={20}
-            className="bg-white rounded-full mx-2"
-          />
-        </motion.button>
+        <motion.p className={`${GeneralSansSemiBold.className} text-3xl`}>
+          Featured Projects
+        </motion.p>
       </motion.li>
       <motion.li
         animate={{
@@ -100,13 +91,9 @@ function IntroductionCard() {
         <ProjectCard
           title="IIUM-Student-Services"
           link="/projects/IIUM-Student-Services"
-          image="/images/65968.jpg"
+          image={ISS}
         />
-        <ProjectCard
-          title="RTWordle"
-          link="/projects/RTWordle"
-          image="/images/download20230100021620.png"
-        />
+        <ProjectCard title="RTWordle" link="/projects/RTWordle" image={RTW} />
       </motion.li>
     </motion.ul>
   );
