@@ -5,6 +5,7 @@ import localFont from "next/font/local";
 import GHContributonGraph from "../../public/components/GHContributionGraph";
 import HiImage from "../../public/images/hi.png";
 import Image from "next/image";
+import Typewriter from "typewriter-effect";
 import { motion } from "framer-motion";
 
 const SFBold = localFont({
@@ -36,7 +37,22 @@ export default function Home() {
         />
         <div className="text-left m-10 ml-0">
           <p className="text-6xl">Hello! I am Quddus!</p>
-          <p className="text-[#515151]">20 years old IIUM Student</p>
+          {/* <p className="text-[#515151]">20 years old IIUM Student</p> */}
+          <div className="text-[#515151]">
+            <Typewriter
+              options={{
+                strings: [
+                  "20 years old IIUM Student",
+                  "A Mechatronic Engineering student by day",
+                  "A hobbyist developer by night",
+                ],
+                autoStart: true,
+                loop: true,
+                delay: 50,
+                deleteSpeed: 20,
+              }}
+            />
+          </div>
         </div>
       </motion.div>
 
