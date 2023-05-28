@@ -7,6 +7,8 @@ import HiImage from "../../public/images/hi.png";
 import Image from "next/image";
 import Typewriter from "typewriter-effect";
 import { motion } from "framer-motion";
+import Marquee from "react-fast-marquee";
+import { SocialIcon } from "react-social-icons";
 
 const SFBold = localFont({
   src: "../../public/fonts/SF-Pro-Text-Bold.otf",
@@ -18,6 +20,10 @@ export default function Home() {
     <div
       className={`${SFBold.className} flex flex-col min-h-screen w-screen bg-[#121212] p-10`}
     >
+      <Marquee speed={100}>
+        Website is still under constructions. You are experiencing the beta
+        version right now.
+      </Marquee>
       <motion.div
         className="flex flex-row"
         initial={{
@@ -43,8 +49,9 @@ export default function Home() {
               options={{
                 strings: [
                   "20 years old IIUM Student",
-                  "A Mechatronic Engineering student by day",
+                  "An engineering student by day",
                   "A hobbyist developer by night",
+                  "Welcome to my profile",
                 ],
                 autoStart: true,
                 loop: true,
@@ -54,9 +61,35 @@ export default function Home() {
             />
           </div>
         </div>
+        <div className="flex flex-row">
+          <SocialIcon
+            url="https://www.github.com/qryskalyst20"
+            bgColor="transparent"
+            fgColor="#515151"
+          />
+          <SocialIcon
+            url="https://www.instagram.com/nrmnqdds"
+            bgColor="transparent"
+            fgColor="#515151"
+          />
+          <SocialIcon
+            url="https://www.twitter.com/nrmnqdds"
+            bgColor="transparent"
+            fgColor="#515151"
+          />
+          <SocialIcon
+            url="https://www.snapchat.com/add/nrmnqdds?share_id=sB8NYcLkwL0&locale=en-MY"
+            bgColor="transparent"
+            fgColor="#515151"
+          />
+        </div>
       </motion.div>
 
-      <GHContributonGraph />
+      <div className="flex flex-row gap-5">
+        <GHContributonGraph />
+        <GHContributonGraph />
+        <GHContributonGraph />
+      </div>
     </div>
   );
 }
