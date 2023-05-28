@@ -11,7 +11,19 @@ const Image = ({ node, ...props }) => {
 
 export default function GHContributonGraph() {
   return (
-    <motion.div className="w-[30%] rounded-xl" whileHover={{ scale: 1.05 }}>
+    <motion.div
+      className="w-[30%] rounded-xl"
+      initial={{
+        y: 30,
+        opacity: 0,
+      }}
+      whileInView={{
+        y: [30, 20, 10, 0],
+        opacity: [0, 0.1, 0.2, 0.3, 1],
+        duration: 5,
+      }}
+      whileHover={{ scale: 1.05 }}
+    >
       <ReactMarkdown
         components={{
           // Use the custom component for image element
