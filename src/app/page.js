@@ -61,31 +61,30 @@ export default function Home() {
             />
           </div>
         </div>
-        <div className="flex flex-row">
-          <SocialIcon
-            url="https://www.github.com/qryskalyst20"
-            bgColor="transparent"
-            fgColor="#515151"
-          />
-          <SocialIcon
-            url="https://www.instagram.com/nrmnqdds"
-            bgColor="transparent"
-            fgColor="#515151"
-          />
-          <SocialIcon
-            url="https://www.twitter.com/nrmnqdds"
-            bgColor="transparent"
-            fgColor="#515151"
-          />
-          <SocialIcon
-            url="https://www.snapchat.com/add/nrmnqdds?share_id=sB8NYcLkwL0&locale=en-MY"
-            bgColor="transparent"
-            fgColor="#515151"
-          />
-        </div>
       </motion.div>
-
-      <div className="flex flex-row gap-5">
+      <div className="flex flex-row mb-5">
+        <SocialIcon
+          url="https://www.github.com/qryskalyst20"
+          bgColor="transparent"
+          fgColor="#515151"
+        />
+        <SocialIcon
+          url="https://www.instagram.com/nrmnqdds"
+          bgColor="transparent"
+          fgColor="#515151"
+        />
+        <SocialIcon
+          url="https://www.twitter.com/nrmnqdds"
+          bgColor="transparent"
+          fgColor="#515151"
+        />
+        <SocialIcon
+          url="https://www.snapchat.com/add/nrmnqdds?share_id=sB8NYcLkwL0&locale=en-MY"
+          bgColor="transparent"
+          fgColor="#515151"
+        />
+      </div>
+      <div className="flex flex-row space-x-5">
         <GHContributonGraph />
         <GHContributonGraph />
         <GHContributonGraph />
