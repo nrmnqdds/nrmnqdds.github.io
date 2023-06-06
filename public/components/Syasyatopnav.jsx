@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion";
 
 export default function Syasyatopnav() {
   return (
@@ -22,9 +23,12 @@ export default function Syasyatopnav() {
           />
         </div>
       </div>
-      <div className="h-[150px] w-[50%] rounded-b-xl bg-gray-400 self-center flex items-center justify-center ">
+      <motion.div
+        className="h-[150px] w-[50%] rounded-b-xl bg-gray-400 self-center flex items-center justify-center "
+        whileHover={{ height: "170px" }}
+      >
         <p className="text-blue-800 text-7xl">LINGsCARS.com</p>
-      </div>
+      </motion.div>
     </div>
   );
 }

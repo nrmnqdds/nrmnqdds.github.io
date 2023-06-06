@@ -8,11 +8,21 @@ const sidebutton = {
   whileTap: { scale: 0.9 },
 };
 
-export default function Syasyasidenav() {
+export default function Syasyasidenav({ showLogin, showFeedback }) {
   const [showCustomers, setShowCustomers] = useState(false);
 
-  const handleClick = () => {
+  const handleCustomerClick = () => {
     setShowCustomers(!showCustomers);
+  };
+
+  const handleLoginClick = () => {
+    showLogin = true;
+    showFeedback = false;
+  };
+
+  const handleFeedbackClick = () => {
+    showLogin = false;
+    showFeedback = true;
   };
 
   return (
@@ -36,24 +46,31 @@ export default function Syasyasidenav() {
         className="bg-white border-[1.5px] border-black w-[100px] h-[30px] rounded-lg"
         whileHover={sidebutton.whileHover}
         whileTap={sidebutton.whileTap}
-        onClick={handleClick}
+        onClick={handleCustomerClick}
       >
         Customers
       </motion.button>
       {showCustomers && (
         <ul className="text-[10px] mb-3">
           <li>
-            <button className="hover:text-red-600 focus:text-red-600">
+            <button
+              className="hover:text-red-600 focus:text-red-600"
+              onClick={handleLoginClick}
+            >
               Log In
             </button>
           </li>
           <li>
-            <button className="hover:text-red-600 focus:text-red-600">
+            <button
+              className="hover:text-red-600 focus:text-red-600"
+              onClick={handleFeedbackClick}
+            >
               Customer Feedback
             </button>
           </li>
         </ul>
       )}
+
       <motion.button
         className="bg-white border-[1.5px] border-black w-[100px] h-[30px] rounded-lg"
         whileHover={sidebutton.whileHover}
