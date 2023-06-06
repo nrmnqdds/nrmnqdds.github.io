@@ -16,7 +16,7 @@ export default function Syasyasidenav() {
   };
 
   return (
-    <div className="h-screen w-[10%] bg-gray-300 flex flex-col items-center justify-center text-black gap-2">
+    <div className="h-screen flex flex-col items-center justify-center text-black gap-2">
       <p>Menu</p>
       <motion.button
         className="bg-white border-[1.5px] border-black w-[100px] h-[30px] rounded-lg"
