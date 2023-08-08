@@ -1,13 +1,13 @@
-<span id="a">code@nerve</span>:<span id="b">~</span><span id="c">$</span> cd CodeNerve/<!-- kjsdfhkjdhsfkjdshfkj -->About_Us
-<span id="a">coder@nerve</span>:<span id="b">~</span><span id="c">$</span> cat <!-- kjsdfhkjdhsfkjdshfkj -->codenerve.txt<br/><br/>
-My favorite code quote, "<span id="k">Code for Everyone</span>". <!-- sjkfhskjf -->
+<span id="a">q4gura@localhost</span>:<span id="b">~</span><span id="c">$</span> sudo su
+<span style="color: red;">q4gura@root</span>:<span id="b">~</span><span id="c">$</span> cat <!-- kjsdfhkjdhsfkjdshfkj -->helloworld.txt<br/><br/>
+My favorite code quote, "<span id="k">Turning concept into reality</span>". <!-- sjkfhskjf -->
 
-Hey There! This is the portflio website in the skin of a terminal.<!-- laglaglaglaglaglaglaglaglaglaglaglag --><p>You can see that, this is how your portfolio would look like.</p>
-<p>You can introduce yourself here.</p> <!-- ksjdokhdfgdufdfkjhfkjahdfkjhafkjhakf -->
-<p> You can also tell what you've worked and known and what skills you have, you can also give link to your professional portfolio here<a href="link"> portfolio</a>.</p><!-- kjdhjhgdgldjhgdwtoiewotwotjdfkjdfffsf -->
-<p>Tell more about yourself. <br><br><br>Give your project links or something like that. <a href="link"> Here you go</a>.</p><!-- hsdgfhjfkdjhfkjsdhfkjdshfkjsdhfkjsdhkfjhdskjfhksdjhfkdsj -->
-<p> You can give links to other professional profiles you have on Internet, here: <br> <a href="link1">Profile1</a> <br> <a href="link2">Profile2</a> and <br> <a href="link3">Profile3</a>.</p>
+Hey There! My name is Quddus. <!-- laglaglaglaglaglaglaglaglaglaglaglag --><p>Welcome to my alternate profile website!</p>
+<p>I am a 20 years old self-learner developer, specifically for <span style="color: turquoise;">React</span> and <span style="color: turquoise;">React Native</span> development. </p> <!-- ksjdokhdfgdufdfkjhfkjahdfkjhafkjhakf -->
+<p> Im an currently studying in university in Malaysia, in Mechatronics Engineering. You can also check out my professional portfolio <a href="q4gura@vercel.app">here</a>.</p><!-- kjdhjhgdgldjhgdwtoiewotwotjdfkjdfffsf -->
+<p> My tech stacks currently are React, React Native, NextJS, TailwindCSS and Postman. <br><br><br>One of my proud project is <a href="github.com/qryskalyst20/dragondex">Dragondex</a>.</p><!-- hsdgfhjfkdjhfkjsdhfkjdshfkjsdhfkjsdhkfjhdskjfhksdjhfkdsj -->
+<p> Do follow my social media also, here: <br> <a href="instagram.com/nrmnqdds">Instagram</a> <br> <a href="mastodon.social/@q4gura">Mastodon</a> and <br> <a href="github.com/qryskalyst20">Github</a>.</p>
 
-You can also give your email ID for contacting you<!-- slightdelayhere-->, feel free to send me an email at<!-- longlonglongcomment --><a href="Your email ID">Email</a>.
+If you are interested<!-- slightdelayhere-->, feel free to send me an <!-- longlonglongcomment --><a href="quddusnuriman@gmail.com">email!</a>.
 
 <p>Cheers!</p>
