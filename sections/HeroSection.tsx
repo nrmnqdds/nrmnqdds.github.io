@@ -8,16 +8,16 @@ const HeroSection = () => {
   return (
     <section className="isolate w-full h-screen flex flex-col items-center justify-center">
       <RevealWrapper easing="ease-in-out" origin="bottom" className="invisible">
-        <div className="flex items-baseline">
+        <div className="flex items-baseline flex-col-reverse md:flex-row">
           <h1 className="text-3xl md:text-5xl lg:text-8xl font-bold text-zinc-800 dark:text-slate-100 drop-shadow-lg">
             Hi there!
           </h1>
           <Image
             src="/20230929_160804026_iOS.png"
             alt=""
-            width={120}
-            height={120}
-            className="object-contain drop-shadow"
+            width={0}
+            height={0}
+            className="w-[200px] h-[200px] lg:w-[120px] lg:h-[120px] object-contain drop-shadow"
           />
         </div>
 
