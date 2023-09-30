@@ -18,8 +18,8 @@ const navigation = [
     href: "#projects",
   },
   {
-    name: "Stack",
-    href: "#stack",
+    name: "Skills",
+    href: "#skill",
   },
 ];
 
@@ -29,7 +29,7 @@ const Navbar = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 500) {
+      if (window.scrollY > 200) {
         handleBlur(true);
       } else handleBlur(false);
     });
@@ -66,7 +66,7 @@ const Navbar = () => {
               alt="Logo"
               width={60}
               height={60}
-              className="object-contain drop-shadow-lg"
+              className="object-contain drop-shadow"
             />
           </Link>
         </div>
@@ -85,7 +85,7 @@ const Navbar = () => {
             <Link
               key={item.name}
               href={item.href}
-              className="font-bold text-lg text-zinc-700 dark:text-slate-100 tracking-widest mx-4 cursor-pointer hover:text-purple-300 dark:hover:text-purple-500"
+              className="font-bold text-lg text-zinc-800 dark:text-slate-100 tracking-widest mx-4 cursor-pointer hover:text-purple-300 dark:hover:text-purple-500"
               onClick={(e) => {
                 e.preventDefault();
                 const element = document.getElementById(item.href.slice(1)); // Assuming item.href is a hash link (#example)
