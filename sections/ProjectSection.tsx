@@ -65,20 +65,20 @@ const ProjectSection = () => {
         reset={true}
         easing="ease-in-out"
         origin="bottom"
-        className="invisible w-full flex flex-row flex-wrap gap-2"
+        className="invisible w-full flex flex-col gap-2"
       >
         {projects.map((project: any, index: number) => (
           <div
             key={index}
-            className={`py-10 flex ${
-              index % 2 === 0 ? `flex-row` : `flex-row-reverse`
-            } w-full`}
+            className={`py-10 flex flex-col ${
+              index % 2 === 0 ? `md:flex-row` : `md:flex-row-reverse`
+            } w-full gap-5 md:gap-0`}
           >
-            <div className="flex-1 flex flex-col items-center justify-center gap-3">
-              <h1 className="font-bold text-5xl text-zinc-800 dark:text-slate-100">
+            <div className="md:flex-1 flex flex-col items-center justify-center gap-3">
+              <h1 className="font-bold text-3xl md:text-5xl text-zinc-800 dark:text-slate-100">
                 {project.title}
               </h1>
-              <p className="font-bold text-2xl text-zinc-600 dark:text-zinc-400">
+              <p className="font-bold text-lg md:text-2xl text-zinc-600 dark:text-zinc-400">
                 {project.description}
               </p>
               <Link
@@ -91,8 +91,8 @@ const ProjectSection = () => {
                 <span>View on GitHub</span>
               </Link>
             </div>
-            <div className="flex-1 flex items-center justify-center">
-              <div className="rounded-lg overflow-hidden h-fit w-[500px]">
+            <div className="md:flex-1 flex items-center justify-center">
+              <div className="rounded-lg overflow-hidden h-fit w-[300px] md:w-[500px]">
                 <Image
                   src={project.image}
                   alt=""
