@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import {
   BiLogoReact,
@@ -170,6 +170,8 @@ const SkillSection = () => {
       <RevealWrapper
         easing="ease-in-out"
         origin="bottom"
+        delay={200}
+        reset={true}
         className="invisible flex flex-row flex-wrap w-full items-center justify-center"
       >
         {skills.map((skill) => (
