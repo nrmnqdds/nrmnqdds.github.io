@@ -60,19 +60,19 @@ const ProjectSection = () => {
       </div>
 
       <RevealList
-        interval={100}
-        delay={100}
+        interval={200}
+        delay={200}
         reset={true}
         easing="ease-in-out"
         origin="bottom"
-        className="invisible w-full flex flex-col gap-2"
+        className="invisible w-full flex flex-col"
       >
         {projects.map((project: any, index: number) => (
           <div
             key={index}
             className={`py-10 flex flex-col ${
               index % 2 === 0 ? `md:flex-row` : `md:flex-row-reverse`
-            } w-full gap-5 md:gap-0`}
+            } w-full my-5 md:gap-0`}
           >
             <div className="md:flex-1 flex flex-col items-center justify-center gap-3">
               <h1 className="font-bold text-3xl md:text-5xl text-zinc-800 dark:text-slate-100">
