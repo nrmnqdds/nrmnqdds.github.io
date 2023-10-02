@@ -4,6 +4,17 @@ import Link from "next/link";
 import { RevealList } from "next-reveal";
 import { Image } from "@unpic/react";
 import { AiFillGithub } from "react-icons/ai";
+import {
+  BiLogoReact,
+  BiLogoTailwindCss,
+  BiLogoFirebase,
+  BiLogoTypescript,
+  BiLogoJavascript,
+  BiLogoGoogleCloud,
+  BiLogoDocker,
+} from "react-icons/bi";
+import { SiNextdotjs, SiExpo, SiVite, SiVercel } from "react-icons/si";
+import { FaGitAlt } from "react-icons/fa";
 
 const projects = [
   {
@@ -11,30 +22,70 @@ const projects = [
     description: "A simplified version of student portal for my university!",
     link: "https://github.com/qryskalyst20/simplified-imaluum",
     image: "/Screenshot 2023-09-19 221003.png",
+    tech: [
+      <BiLogoTypescript key="ts" className="text-blue-500" />,
+      <BiLogoReact key="react" className="text-blue-500" />,
+      <SiNextdotjs key="next" className="text-gray-600" />,
+      <BiLogoTailwindCss key="tailwind" className="text-cyan-600" />,
+      <BiLogoGoogleCloud key="gcp" className="text-blue-500" />,
+      <BiLogoDocker key="docker" className="text-blue-500" />,
+      <FaGitAlt key="git" className="text-orange-600" />,
+    ],
   },
   {
     title: "X Profile",
     description: "Showcase your profile in a unique way!",
     link: "https://github.com/Youth-Icon/xprofile",
     image: "/Screenshot 2023-10-01 233300.png",
+    tech: [
+      <BiLogoTypescript key="ts" className="text-blue-500" />,
+      <BiLogoReact key="react" className="text-blue-500" />,
+      <SiNextdotjs key="next" className="text-gray-600" />,
+      <BiLogoTailwindCss key="tailwind" className="text-cyan-600" />,
+      <BiLogoFirebase key="firebase" className="text-yellow-500" />,
+      <SiVercel key="vercel" className="text-gray-600" />,
+      <FaGitAlt key="git" className="text-orange-600" />,
+    ],
   },
   {
     title: "FuelMY",
     description: "A fuel price tracker mobile app in Malaysia!",
     link: "https://github.com/qryskalyst20/fuelmy",
     image: "/fuelmy.png",
+    tech: [
+      <BiLogoJavascript key="js" className="text-yellow-500" />,
+      <BiLogoReact key="react" className="text-blue-500" />,
+      <SiExpo key="expo" className="text-gray-500" />,
+      <BiLogoTailwindCss key="tailwind" className="text-cyan-600" />,
+      <FaGitAlt key="git" className="text-orange-600" />,
+    ],
   },
   {
     title: "DragonDex",
     description: "A Pokedex for Dragon City fans!",
     link: "https://github.com/qryskalyst20/dragondex",
     image: "/dd.png",
+    tech: [
+      <BiLogoJavascript key="js" className="text-yellow-500" />,
+      <BiLogoReact key="react" className="text-blue-500" />,
+      <SiExpo key="expo" className="text-gray-500" />,
+      <BiLogoTailwindCss key="tailwind" className="text-cyan-600" />,
+      <FaGitAlt key="git" className="text-orange-600" />,
+    ],
   },
   {
     title: "Rapidramatic",
     description: "Tracks RapidKL's breakdowns and delays!",
     link: "https://github.com/qryskalyst20/rapidramatic",
     image: "/Screenshot 2023-10-01 231459.png",
+    tech: [
+      <BiLogoJavascript key="js" className="text-yellow-500" />,
+      <BiLogoReact key="react" className="text-blue-500" />,
+      <SiVite key="vite" className="text-yellow-500" />,
+      <BiLogoTailwindCss key="tailwind" className="text-cyan-600" />,
+      <SiVercel key="vercel" className="text-gray-600" />,
+      <FaGitAlt key="git" className="text-orange-600" />,
+    ],
   },
 ];
 
@@ -80,6 +131,7 @@ const ProjectSection = () => {
               <p className="font-bold text-lg md:text-2xl text-zinc-600 dark:text-zinc-400">
                 {project.description}
               </p>
+              <div className="flex flex-row gap-2 text-4xl">{project.tech}</div>
               <Link
                 href={project.link}
                 target="_blank"
