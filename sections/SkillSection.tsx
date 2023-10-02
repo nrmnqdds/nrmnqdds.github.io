@@ -25,6 +25,7 @@ import {
 import { FaGitAlt, FaUbuntu } from "react-icons/fa";
 import Link from "next/link";
 import { Image } from "@unpic/react";
+import { RevealWrapper } from "next-reveal";
 
 const skills = [
   {
@@ -99,7 +100,7 @@ const skills = [
   },
   {
     name: "Node.js",
-    logo: <BiLogoNodejs key="js" className="text-yellow-500" />,
+    logo: <BiLogoNodejs key="js" className="text-green-500" />,
     link: "https://nodejs.org/",
   },
   {
@@ -164,7 +165,11 @@ const SkillSection = () => {
           className="w-[100px] h-[100px] object-contain drop-shadow"
         />
       </div>
-      <div className="flex flex-row flex-wrap w-full items-center justify-center">
+      <RevealWrapper
+        easing="ease-in-out"
+        origin="bottom"
+        className="invisible flex flex-row flex-wrap w-full items-center justify-center"
+      >
         {skills.map((skill) => (
           <Link
             href={skill.link}
@@ -179,7 +184,7 @@ const SkillSection = () => {
             </p>
           </Link>
         ))}
-      </div>
+      </RevealWrapper>
     </section>
   );
 };
