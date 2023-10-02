@@ -150,6 +150,7 @@ const ProjectSection = () => {
                   width={0}
                   height={0}
                   className="w-full h-fill object-contain drop-shadow"
+                  priority
                 />
               </div>
             </div>
