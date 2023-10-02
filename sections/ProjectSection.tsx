@@ -13,7 +13,13 @@ import {
   BiLogoGoogleCloud,
   BiLogoDocker,
 } from "react-icons/bi";
-import { SiNextdotjs, SiExpo, SiVite, SiVercel } from "react-icons/si";
+import {
+  SiNextdotjs,
+  SiExpo,
+  SiVite,
+  SiVercel,
+  SiSupabase,
+} from "react-icons/si";
 import { FaGitAlt } from "react-icons/fa";
 
 const projects = [
@@ -63,13 +69,16 @@ const projects = [
   {
     title: "DragonDex",
     description: "A Pokedex for Dragon City fans!",
-    link: "https://github.com/qryskalyst20/dragondex",
+    link: "https://github.com/qryskalyst20/dragondex-web",
     image: "/dd.png",
     tech: [
       <BiLogoJavascript key="js" className="text-yellow-500" />,
       <BiLogoReact key="react" className="text-blue-500" />,
+      <SiNextdotjs key="next" className="text-gray-600" />,
       <SiExpo key="expo" className="text-gray-500" />,
       <BiLogoTailwindCss key="tailwind" className="text-cyan-600" />,
+      <SiSupabase key="supabase" className="text-green-500" />,
+      <SiVercel key="vercel" className="text-gray-600" />,
       <FaGitAlt key="git" className="text-orange-600" />,
     ],
   },
