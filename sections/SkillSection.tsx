@@ -1,3 +1,5 @@
+"use client"
+
 import {
   BiLogoReact,
   BiLogoTailwindCss,
