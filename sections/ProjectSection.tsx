@@ -122,7 +122,7 @@ const ProjectSection = () => {
             key={index}
             className={`py-10 flex flex-col ${
               index % 2 === 0 ? `md:flex-row` : `md:flex-row-reverse`
-            } w-full my-5 md:gap-0`}
+            } w-full my-5 gap-5 md:gap-0`}
           >
             <div className="md:flex-1 flex flex-col items-center justify-center gap-3">
               <h1 className="font-bold text-3xl md:text-5xl text-zinc-800 dark:text-slate-100">
