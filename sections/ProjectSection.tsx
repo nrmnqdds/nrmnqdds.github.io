@@ -62,7 +62,6 @@ const ProjectSection = () => {
       <RevealList
         interval={200}
         delay={200}
-        reset={true}
         easing="ease-in-out"
         origin="bottom"
         className="invisible w-full flex flex-col"
