@@ -8,23 +8,19 @@ import {
   BiLogoJavascript,
   BiLogoGoogleCloud,
   BiLogoDocker,
-  BiLogoHeroku,
-  BiLogoWindows,
-  BiLogoPython,
-  BiLogoNodejs,
   BiLogoCPlusPlus,
 } from "react-icons/bi";
 import {
   SiNextdotjs,
   SiExpo,
   SiVite,
-  SiVercel,
+  SiPrisma,
   SiSupabase,
   SiPostman,
   SiArchlinux,
-  SiKalilinux,
+  SiMongodb,
 } from "react-icons/si";
-import { FaGitAlt, FaUbuntu } from "react-icons/fa";
+import { FaGitAlt, FaVuejs } from "react-icons/fa";
 import Link from "next/link";
 import { Image } from "@unpic/react";
 import { RevealWrapper } from "next-reveal";
@@ -39,11 +35,6 @@ const skills = [
     name: "Javascript",
     logo: <BiLogoJavascript key="js" className="text-yellow-500" />,
     link: "https://www.javascript.com/",
-  },
-  {
-    name: "Python",
-    logo: <BiLogoPython key="python" className="text-blue-500" />,
-    link: "https://www.python.org/",
   },
   {
     name: "C++",
@@ -64,6 +55,11 @@ const skills = [
     name: "Vite",
     logo: <SiVite key="vite" className="text-yellow-500" />,
     link: "https://vitejs.dev/",
+  },
+  {
+    name: "Vue.js",
+    logo: <FaVuejs key="vue" className="text-green-500" />,
+    link: "https://vuejs.org/",
   },
   {
     name: "React Native",
@@ -91,21 +87,6 @@ const skills = [
     link: "https://cloud.google.com/",
   },
   {
-    name: "Vercel",
-    logo: <SiVercel key="vercel" className="text-gray-600" />,
-    link: "https://vercel.com/",
-  },
-  {
-    name: "Heroku",
-    logo: <BiLogoHeroku key="heroku" className="text-purple-600" />,
-    link: "https://www.heroku.com/",
-  },
-  {
-    name: "Node.js",
-    logo: <BiLogoNodejs key="js" className="text-green-500" />,
-    link: "https://nodejs.org/",
-  },
-  {
     name: "Git",
     logo: <FaGitAlt key="git" className="text-orange-600" />,
     link: "https://git-scm.com/",
@@ -115,6 +96,17 @@ const skills = [
     logo: <SiPostman key="postman" className="text-orange-600" />,
     link: "https://www.postman.com/",
   },
+  {
+    name: "Prisma",
+    logo: <SiPrisma key="prisma" className="text-blue-500" />,
+    link: "https://www.prisma.io/",
+  },
+  {
+    name: "MongoDB",
+    logo: <SiMongodb key="mongodb" className="text-green-500" />,
+    link: "https://www.mongodb.com/",
+  },
+
   {
     name: "Firebase",
     logo: <BiLogoFirebase key="firebase" className="text-yellow-500" />,
@@ -126,24 +118,9 @@ const skills = [
     link: "https://supabase.io/",
   },
   {
-    name: "Windows",
-    logo: <BiLogoWindows key="windows" className="text-blue-500" />,
-    link: "https://www.microsoft.com/en-us/windows/",
-  },
-  {
-    name: "Ubuntu",
-    logo: <FaUbuntu key="ubuntu" className="text-orange-600" />,
-    link: "https://ubuntu.com/",
-  },
-  {
     name: "Arch Linux",
     logo: <SiArchlinux key="arch" className="text-blue-500" />,
     link: "https://archlinux.org/",
-  },
-  {
-    name: "Kali Linux",
-    logo: <SiKalilinux key="kali" className="text-zinc-900" />,
-    link: "https://www.kali.org/",
   },
 ];
 
