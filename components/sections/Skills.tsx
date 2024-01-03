@@ -27,8 +27,6 @@ const skills = [
   "React Native",
   "Expo",
   "Tailwindcss",
-  "Framer Motion",
-  "GSAP",
   "Nestjs",
   "MongoDB",
   "Supabase",
