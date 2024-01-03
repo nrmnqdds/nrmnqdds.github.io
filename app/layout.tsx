@@ -1,14 +1,19 @@
-import "./globals.css";
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import { ThemeProvider } from "@/providers/themeProvider";
+import LenisSmoothScroll from "@/components/LenisSmoothScroll";
 import Navbar from "@/components/Navbar";
+import type { Metadata } from "next";
+import localFont from "next/font/local";
+import { Suspense } from "react";
+import "./globals.css";
+import Loading from "./loading";
 
-const inter = Inter({ subsets: ["latin"] });
+const sfPro = localFont({
+  src: "../public/fonts/SF-Pro-Display-Medium.otf",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Quddus | Software Developer",
-  description: "Turn your ideas into reality with me.",
+  description: "Software Developer from Ampang, Selangor.",
 };
 
 export default function RootLayout({
@@ -18,11 +23,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="dark">
-          <Navbar />
-          {children}
-        </ThemeProvider>
+      <body
+        className={`m-0 absolute inset-0 -z-10 h-full w-full bg-zinc-900 bg-[radial-gradient(#27272a_1px,transparent_1px)] [background-size:16px_16px]  ${sfPro.className}`}
+      >
+        <Suspense fallback={<Loading />}>
+          <LenisSmoothScroll>
+            <Navbar />
+            {children}
+          </LenisSmoothScroll>
+        </Suspense>
       </body>
     </html>
   );

@@ -1,14 +1,13 @@
 "use client";
-import { Image } from "@unpic/react";
-import ThemeSwitcher from "./ThemeSwitcher";
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import { RevealWrapper } from "next-reveal";
-import { Dialog } from "@headlessui/react";
-import { AiOutlineClose as XMarkIcon } from "react-icons/ai";
-import { FaBars as Bars3Icon } from "react-icons/fa";
 
-const navigation = [
+import { motion } from "framer-motion";
+import Link from "next/link";
+
+const navigations = [
+  {
+    name: "Home",
+    href: "#home",
+  },
   {
     name: "About",
     href: "#about",
@@ -19,140 +18,53 @@ const navigation = [
   },
   {
     name: "Skills",
-    href: "#skill",
+    href: "#skills",
   },
 ];
 
-const Navbar = () => {
-  const [blur, handleBlur] = useState<boolean>(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+const fadeInAnimationVariants = {
+  initial: {
+    opacity: 0,
+    y: -30,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: 0.5,
+      duration: 0.5,
+      type: "easeInOut",
+    },
+  },
+};
 
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 200) {
-        handleBlur(true);
-      } else handleBlur(false);
-    });
-  }, []);
+const Navbar = () => {
   return (
-    <RevealWrapper
-      className={`fixed inset-x-0 top-0 z-50 invisible ${
-        blur && "backdrop-blur"
-      }`}
-      easing="ease-in-out"
-      delay={100}
-      duration={300}
-      origin="top"
-    >
-      <nav
-        className="flex items-center justify-between lg:px-8 h-14 px-8"
-        aria-label="Global"
+    <nav className="z-50 fixed w-full top-5 flex item-center justify-center">
+      <motion.div
+        className="bg-zinc-950 rounded-full border border-zinc-600 flex flex-row gap-10 items-center justify-center"
+        variants={fadeInAnimationVariants}
+        initial="initial"
+        animate="animate"
       >
-        <div className="flex lg:flex-1">
+        {navigations.map((navigation, index) => (
           <Link
-            href="#"
+            key={index}
+            href={navigation.href}
+            className="text-zinc-100 font-bold px-5 py-3 rounded-md hover:text-purple-600"
             onClick={(e) => {
               e.preventDefault();
-              window.scrollTo({
-                top: 0,
-                behavior: "smooth",
-              });
+              const element = document.querySelector(navigation.href);
+              if (element) {
+                element.scrollIntoView({ behavior: "smooth" });
+              }
             }}
-            className="-m-2 p-1.5"
           >
-            <span className="sr-only">Logo</span>
-            <Image
-              src="/20230929_160912237_iOS.png"
-              alt="Logo"
-              width={60}
-              height={60}
-              className="object-contain drop-shadow"
-            />
+            {navigation.name}
           </Link>
-        </div>
-        <div className="flex lg:hidden">
-          <button
-            type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-            onClick={() => setMobileMenuOpen(true)}
-          >
-            <span className="sr-only">Open main menu</span>
-            <Bars3Icon className="h-6 w-6 text-slate-100" aria-hidden="true" />
-          </button>
-        </div>
-        <div className="hidden lg:flex">
-          {navigation.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="font-bold text-lg text-zinc-800 dark:text-slate-100 tracking-widest mx-4 cursor-pointer hover:text-purple-300 dark:hover:text-purple-500"
-              onClick={(e) => {
-                e.preventDefault();
-                const element = document.getElementById(item.href.slice(1)); // Assuming item.href is a hash link (#example)
-                if (element) {
-                  element.scrollIntoView({ behavior: "smooth" }); // You can customize scroll behavior here
-                }
-              }}
-            >
-              <div className="hover:bg-secondary  h-14 w-[100px] flex items-center justify-center">
-                {item.name}
-              </div>
-            </Link>
-          ))}
-        </div>
-        <div className="hidden lg:flex items-center">
-          <ThemeSwitcher />
-        </div>
-      </nav>
-      <Dialog
-        as="div"
-        className="lg:hidden"
-        open={mobileMenuOpen}
-        onClose={setMobileMenuOpen}
-      >
-        <div className="fixed inset-0 z-50" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-purple-700 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-          <div className="flex items-center justify-between">
-            <button
-              type="button"
-              className="-m-2.5 rounded-md p-2.5 text-gray-700"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              <span className="sr-only">Close menu</span>
-              <XMarkIcon
-                className="h-6 w-6 text-slate-100"
-                aria-hidden="true"
-              />
-            </button>
-          </div>
-          <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-gray-500/10">
-              <div className="space-y-2 py-6">
-                {navigation.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-slate-100 hover:text-purple-300"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      const element = document.getElementById(
-                        item.href.slice(1)
-                      ); // Assuming item.href is a hash link (#example)
-                      if (element) {
-                        element.scrollIntoView({ behavior: "smooth" }); // You can customize scroll behavior here
-                      }
-                      setMobileMenuOpen(false);
-                    }}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
-        </Dialog.Panel>
-      </Dialog>
-    </RevealWrapper>
+        ))}
+      </motion.div>
+    </nav>
   );
 };
 

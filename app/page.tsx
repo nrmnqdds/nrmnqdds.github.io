@@ -1,15 +1,23 @@
-import AboutSection from "@/sections/AboutSection";
-import HeroSection from "@/sections/HeroSection";
-import ProjectSection from "@/sections/ProjectSection";
-import SkillSection from "@/sections/SkillSection";
+import ScrollProgress from "@/components/ScrollProgress";
+import About from "@/components/sections/About";
+import Contact from "@/components/sections/Contact";
+import Footer from "@/components/sections/Footer";
+import Home from "@/components/sections/Home";
+import Projects from "@/components/sections/Projects";
+import Skills from "@/components/sections/Skills";
 
-export default function Home() {
+const Page = () => {
   return (
-    <main className="min-h-screen bg-dotted-spacing-4 dark:bg-dotted-zinc-800 bg-dotted-slate-300 bg-slate-100 dark:bg-zinc-900 px-5 md:px-24">
-      <HeroSection />
-      <AboutSection />
-      <ProjectSection />
-      <SkillSection />
-    </main>
+    <>
+      <ScrollProgress />
+      <Home />
+      <About />
+      <Projects />
+      <Skills />
+      <Contact />
+      <Footer />
+    </>
   );
-}
+};
+
+export default Page;
