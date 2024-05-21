@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "SFPro";
+    src: url("/fonts/SF-Pro-Display-Medium.otf")
+  }
+}
