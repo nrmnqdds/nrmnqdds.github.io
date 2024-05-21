@@ -5,8 +5,8 @@ import { useEffect, useRef, useState } from "react";
 
 const image2 = [
 	{
-		src: "cbl-staging.nrmnqdds.com_auth_login.png",
-		href: "https://cbl-staging.nrmnqdds.com",
+		src: "imaluum.nrmnqdds.com_.png",
+		href: "https://imaluum.nrmnqdds.com",
 	},
 	{
 		src: "ihaxiium.com_.png",
@@ -25,32 +25,32 @@ const image2 = [
 		href: "https://github.com/nrmnqdds/Dragondex",
 	},
 	{
-		src: "imaluum.nrmnqdds.com_.png",
-		href: "https://imaluum.nrmnqdds.com",
+		src: "cbl-staging.nrmnqdds.com_auth_login.png",
+		href: "https://cbl-staging.nrmnqdds.com",
 	},
 	{
 		src: "imaluum.nrmnqdds.com_.png",
 		href: "https://imaluum.nrmnqdds.com",
 	},
 	{
-		src: "imaluum.nrmnqdds.com_.png",
-		href: "https://imaluum.nrmnqdds.com",
+		src: "ideaspace.nrmnqdds.com_.png",
+		href: "https://ideaspace.nrmnqdds.com",
 	},
 	{
 		src: "hangnadim.vercel.app_.png",
 		href: "https://hangnadim.vercel.app",
 	},
 	{
-		src: "localhost_3000_ (copy 1).png",
-		href: "https://github.com/nrmnqdds/i-study",
+		src: "studyjom.nrmnqdds.com_.png",
+		href: "https://studyjom.nrmnqdds.com",
 	},
 	{
 		src: "fuelmy.png",
 		href: "https://github.com/nrmnqdds/fuelmy",
 	},
 	{
-		src: "imaluum.nrmnqdds.com_.png",
-		href: "https://imaluum.nrmnqdds.com",
+		src: "studyjom.nrmnqdds.com_.png",
+		href: "https://studyjom.nrmnqdds.com",
 	},
 ];
 
