@@ -22,13 +22,18 @@ const skills = [
 	"React",
 	"Nextjs",
 	"Vuejs",
+	"Nuxtjs",
 	"React Native",
 	"Expo",
 	"Tailwindcss",
 	"Nestjs",
+	"Express",
+	"Honojs",
 	"MongoDB",
 	"Supabase",
 	"Prisma",
+	"Drizzle",
+	"PostgresQL",
 	"Git",
 ];
 
