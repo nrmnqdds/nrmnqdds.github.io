@@ -1,4 +1,5 @@
 import ProjectCard from "@/components/project-card";
+import { Image } from "@unpic/react";
 
 const projects = [
 	{
@@ -63,10 +64,24 @@ const projects = [
 
 const ProjectNew = () => {
 	return (
-		<section id="projects" className="w-full py-10 grid grid-cols-2 gap-3">
-			{projects.map((project, i) => (
-				<ProjectCard key={i} {...project} />
-			))}
+		<section id="projects">
+			<div className="flex flex-row items-center justify-center mb-5">
+				<Image
+					src="20230929_160956503_iOS.png"
+					alt="memoji"
+					width={100}
+					height={100}
+					className="w-auto object-contain"
+				/>
+				<h1 className="text-white font-bold text-3xl md:text-5xl">
+					Check out things I built!
+				</h1>
+			</div>
+			<div id="projects" className="w-full py-10 grid grid-cols-2 gap-3">
+				{projects.map((project, i) => (
+					<ProjectCard key={i} {...project} />
+				))}
+			</div>
 		</section>
 	);
 };
