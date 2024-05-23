@@ -64,7 +64,7 @@ const projects = [
 
 const ProjectNew = () => {
 	return (
-		<section id="projects">
+		<section id="projects" className="w-full">
 			<div className="flex flex-row items-center justify-center mb-5">
 				<Image
 					src="20230929_160956503_iOS.png"
@@ -77,7 +77,10 @@ const ProjectNew = () => {
 					Check out things I built!
 				</h1>
 			</div>
-			<div id="projects" className="w-full py-10 grid grid-cols-2 gap-3">
+			<div
+				id="projects"
+				className="w-full py-10 px-5 grid place-items-center grid-cols-1 sm:grid-cols-2 gap-3"
+			>
 				{projects.map((project, i) => (
 					<ProjectCard key={i} {...project} />
 				))}

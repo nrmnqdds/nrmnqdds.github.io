@@ -212,7 +212,7 @@ const Home = () => {
 	return (
 		<section id="home" className="h-screen overflow-hidden relative">
 			<div className="absolute flex flex-col md:flex-row items-center justify-center w-full h-full">
-				<div className="md:flex-1 flex items-center justify-center">
+				<div className="md:flex-1 flex items-center justify-center translate-y-[100px] sm:translate-y-0">
 					<motion.div
 						className="space-y-10"
 						variants={fadeInAnimationVariants1}

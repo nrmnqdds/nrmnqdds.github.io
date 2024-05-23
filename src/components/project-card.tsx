@@ -23,21 +23,21 @@ const ProjectCard = ({
 	return (
 		<div
 			className={cn(
-				"bg-zinc-950 border border-zinc-700 p-3 rounded-2xl h-[700px] flex flex-col justify-between",
+				"bg-zinc-950 border border-zinc-700 p-3 rounded-2xl w-full h-[500px] sm:h-[700px] flex flex-col justify-between",
 				className,
 			)}
 		>
-			<div className="w-full h-2/3 relative overflow-hidden rounded-2xl">
+			<div className="w-full h-2/3 overflow-hidden rounded-2xl">
 				<Image
 					src={imageURI}
 					alt="project-image"
 					layout="fullWidth"
-					className="rounded-2xl absolute -translate-y-10"
+					className="rounded-2xl -translate-y-10"
 				/>
 			</div>
 			<h1 className="text-white font-bold text-4xl">{title}</h1>
 			<p className="text-white">{desc}</p>
-			<div className="flex flex-row gap-2">
+			<div className="flex flex-row flex-wrap gap-2">
 				{techs.map((tech, i) => (
 					<span key={i} className="text-white bg-zinc-700 px-2 py-1 rounded-lg">
 						{tech}
