@@ -14,7 +14,7 @@ const projects = [
 	{
 		id: 1,
 		title: "Simplified i-Ma'luum",
-		desc: "A more friendlier version of i-Ma'luum.",
+		desc: "A more friendlier version of i-Ma'luum. Making it easier for students to access their academic information.",
 		techs: ["Reactjs", "Next.js", "Tailwind CSS"],
 		imageURI: "/shotsso/imaluum.png",
 		source: "https://github.com/nrmnqdds/simplified-imaluum",
@@ -23,7 +23,7 @@ const projects = [
 	{
 		id: 2,
 		title: "Studyjom",
-		desc: "A gamified study platform for students with AI features to chat with notes.",
+		desc: "🚧 WORK IN PROGRESS. A gamified study platform for students with AI features to chat with notes.",
 		techs: [
 			"Reactjs",
 			"Next.js",
@@ -39,7 +39,7 @@ const projects = [
 	{
 		id: 3,
 		title: "i-Hax 2023",
-		desc: "Official website for i-Hax 2023 event.",
+		desc: "Official website for IIUM i-Hax 2023 event.",
 		techs: ["Reactjs", "Next.js", "Tailwind CSS"],
 		imageURI: "/shotsso/ihax.png",
 		live: "https://ihaxiium.com",
