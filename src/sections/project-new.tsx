@@ -60,6 +60,14 @@ const projects = [
 		imageURI: "/shotsso/dragondex.png",
 		source: "https://github.com/nrmnqdds/dragondex",
 	},
+	{
+		id: 6,
+		title: "MaLLam NPM Package",
+		desc: "A Javascript wrapper around Malaysia Large Language Model (MaLLaM) API for easy integration.",
+		techs: ["Typescript"],
+		imageURI: "/shotsso/mallam.png",
+		source: "https://github.com/nrmnqdds/mallam-npm",
+	},
 ];
 
 const ProjectNew = () => {
@@ -81,8 +89,16 @@ const ProjectNew = () => {
 				id="projects"
 				className="w-full py-10 px-5 grid place-items-center grid-cols-1 sm:grid-cols-2 gap-3"
 			>
-				{projects.map((project, i) => (
-					<ProjectCard key={i} {...project} />
+				{projects.map((project) => (
+					<ProjectCard
+						key={project.id}
+						{...project}
+						className={
+							project.id === projects.length - 1 && project.id % 2 === 0
+								? "sm:col-span-2"
+								: ""
+						}
+					/>
 				))}
 			</div>
 		</section>

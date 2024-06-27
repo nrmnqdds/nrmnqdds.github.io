@@ -1,4 +1,4 @@
-import ScrollProgress from "@/components/scroll-progress";
+// import ScrollProgress from "@/components/scroll-progress";
 import About from "@/sections/about";
 import Contact from "@/sections/contact";
 import Footer from "@/sections/footer";
@@ -14,7 +14,7 @@ export const Route = createLazyFileRoute("/")({
 function Index() {
 	return (
 		<>
-			<ScrollProgress />
+			{/* <ScrollProgress /> */}
 			<Home />
 			<About />
 			<ProjectNew />
