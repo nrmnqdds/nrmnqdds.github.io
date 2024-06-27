@@ -4,7 +4,6 @@ import Contact from "@/sections/contact";
 import Footer from "@/sections/footer";
 import Home from "@/sections/home";
 import ProjectNew from "@/sections/project-new";
-// import Projects from "@/sections/projects";
 import Skills from "@/sections/skills";
 import { createLazyFileRoute } from "@tanstack/react-router";
 
@@ -18,7 +17,6 @@ function Index() {
 			<ScrollProgress />
 			<Home />
 			<About />
-			{/* <Projects /> */}
 			<ProjectNew />
 			<Skills />
 			<Contact />
