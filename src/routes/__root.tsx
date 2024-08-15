@@ -10,7 +10,7 @@ export const Route = createRootRoute({
 		<Suspense fallback={<Loading />}>
 			<QueryProvider>
 				<Outlet />
-				<TanStackRouterDevtools />
+				<TanStackRouterDevtools initialIsOpen={false} />
 				<ReactQueryDevtools initialIsOpen={false} />
 			</QueryProvider>
 		</Suspense>

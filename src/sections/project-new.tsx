@@ -34,7 +34,7 @@ const projects = [
 		],
 		imageURI: "/shotsso/studyjom.png",
 		source: "https://github.com/nrmnqdds/studyjom-v4",
-		// live: "https://studyjom.nrmnqdds.com",
+		live: "https://studyjom.nrmnqdds.com",
 	},
 	{
 		id: 3,
