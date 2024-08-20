@@ -38,6 +38,7 @@ jobs:
         run: |
           npm run build
           cp ads.txt dist/ads.txt
+          ls -la dist
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
