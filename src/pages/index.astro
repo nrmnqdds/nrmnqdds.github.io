@@ -1,0 +1,152 @@
+---
+
+import Projects from "../components/home/projects.astro";
+import Skills from "../components/home/skills.astro";
+import Calendar from "../components/home/calendar.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Cool Portfolio</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <main class="bg-[#FFFFCC] text-[#000080] font-['Times_New_Roman',_Times,_serif] p-4 min-h-screen overscroll-y-none">
+    <table class="w-full max-w-5xl mx-auto border-2 border-[#000080]">
+      <tbody>
+        <tr>
+          <td colspan="2" class="bg-[#000080] text-[#FFFF00] text-center p-4">
+            <h1 class="text-4xl font-bold animate-pulse">Welcome to My Cool Portfolio!</h1>
+          </td>
+        </tr>
+        <tr>
+          <td class="w-1/4 bg-[#CCCCFF] p-4 align-top">
+            <nav>
+              <ul class="list-disc list-inside">
+                <li><a href="#about" class="text-[#0000FF] hover:underline">About Me</a></li>
+                <li><a href="#skills" class="text-[#0000FF] hover:underline">My Skills</a></li>
+                <li><a href="#projects" class="text-[#0000FF] hover:underline">Cool Projects</a></li>
+                <li><a href="#guestbook" class="text-[#0000FF] hover:underline">Guestbook</a></li>
+              </ul>
+            </nav>
+            <div class="mt-4 text-center">
+              <img src="/IMG_6885.jpeg" alt="Me" class="mx-auto border-2 border-[#000080]" />
+              <p class="mt-2">That's me!</p>
+            </div>
+            <div class="mt-4 text-center">
+              <p>Visitors:</p>
+              <div id="visitor-count" class="bg-black text-[#00FF00] inline-block px-2 py-1 font-mono">
+                1337
+              </div>
+            </div>
+            <Calendar />
+          </td>
+          <td class="p-4">
+            <marquee class="text-[#FF0000] text-xl font-bold">Welcome to my awesome portfolio site!</marquee>
+
+            <section id="about" class="mt-4">
+              <h2 class="text-2xl font-bold underline">About Me</h2>
+              <p>Hi there! I'm a software engineer who loves creating cool things. I love to learn new things everyday!</p>
+            </section>
+
+
+            <Skills />
+
+            <Projects />
+
+            <section id="timeline" class="mt-4">
+            <h2 class="text-2xl font-bold underline">Job Timeline</h2>
+            <table class="w-full border-collapse border border-[#000080] mt-2">
+              <tr class="bg-[#CCCCFF]">
+                <th class="border border-[#000080] p-2">Year</th>
+                <th class="border border-[#000080] p-2">Position</th>
+                <th class="border border-[#000080] p-2">Company</th>
+              </tr>
+              <tr>
+                <td class="border border-[#000080] p-2">2023 - Present</td>
+                <td class="border border-[#000080] p-2">Lead Software Engineer</td>
+                <td class="border border-[#000080] p-2">Azmi Productions</td>
+              </tr>
+              <tr>
+                <td class="border border-[#000080] p-2">2023 - Present</td>
+                <td class="border border-[#000080] p-2">Software Engineer</td>
+                <td class="border border-[#000080] p-2">Forthify</td>
+              </tr>
+              <tr>
+                <td class="border border-[#000080] p-2">2024</td>
+                <td class="border border-[#000080] p-2">Software Engineer</td>
+                <td class="border border-[#000080] p-2">Mulhaq</td>
+              </tr>
+            </table>
+          </section>
+
+            <section id="guestbook" class="mt-4">
+              <h2 class="text-2xl font-bold underline">Guestbook</h2>
+              <form id="guestbook-form" class="mt-2">
+                <input type="text" name="name" placeholder="Your Name" required class="border p-1 mr-2" />
+                <input type="text" name="message" placeholder="Your Message" required class="border p-1 mr-2" />
+                <button type="submit" class="bg-[#000080] text-[#FFFF00] px-2 py-1">Sign Guestbook</button>
+              </form>
+              <div id="guestbook-entries" class="mt-2 max-h-40 overflow-y-auto border p-2">
+                <div class="mb-2">
+                  <strong>Tom:</strong> Cool site!
+                </div>
+                <div class="mb-2">
+                  <strong>Jane:</strong> Love the design!
+                </div>
+              </div>
+            </section>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" class="bg-[#000080] text-[#FFFF00] text-center p-2">
+            <p>© 2024 My Cool Portfolio. Best viewed in Netscape Navigator.</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+<script>
+  // Visitor counter
+  let visitorCount = 1337;
+  const visitorCountElement = document.getElementById('visitor-count');
+  setInterval(() => {
+    visitorCount++;
+    if (visitorCountElement) {
+      visitorCountElement.textContent = visitorCount.toString();
+    }
+  }, 60000);
+
+  // Guestbook functionality
+  const guestbookForm = document.getElementById('guestbook-form');
+  const guestbookEntries = document.getElementById('guestbook-entries');
+
+  if (guestbookForm && guestbookEntries) {
+    guestbookForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const formData = new FormData(e.target as HTMLFormElement);
+      const name = formData.get('name') as string;
+      const message = formData.get('message') as string;
+
+      const entryElement = document.createElement('div');
+      entryElement.className = 'mb-2';
+      entryElement.innerHTML = `<strong>${name}:</strong> ${message}`;
+      guestbookEntries.prepend(entryElement);
+
+      (e.target as HTMLFormElement).reset();
+    });
+  }
+</script>
+
+<style>
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+  .animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+</style>
+  </html>
