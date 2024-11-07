@@ -7,7 +7,9 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "biome lint --write --unsafe ./src/",
+    "format": "biome format --write ./src/"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
