@@ -30,133 +30,138 @@ import Calendar from "../components/home/calendar.astro";
     <meta property="twitter:description" content="Welcome to Quddus' portfolio! I'm a software engineer who loves creating awesome things and learning new technologies." />
     <meta property="twitter:image" content="https://www.quddus.my/2024-11-07_21-23.png" />
   </head>
-  <main class="bg-[#FFFFCC] text-[#000080] font-['Times_New_Roman',_Times,_serif] p-4 min-h-screen">
-    <table class="w-full max-w-3xl mx-auto border-2 border-[#000080]">
-      <tbody>
-        <tr>
-          <td colspan="2" class="bg-[#000080] text-[#FFFF00] text-center p-4">
-            <h1 class="text-4xl font-bold animate-pulse">Welcome to Quddus Cool Portfolio!</h1>
-          </td>
-        </tr>
-        <tr>
-          <td class="w-1/4 bg-[#CCCCFF] p-4 align-top">
-            <nav>
-              <ul class="list-disc list-inside">
-                <li><a href="#about" class="text-[#0000FF] hover:underline">About Me</a></li>
-                <li><a href="#skills" class="text-[#0000FF] hover:underline">My Skills</a></li>
-                <li><a href="#projects" class="text-[#0000FF] hover:underline">Cool Projects</a></li>
-                <li><a href="#guestbook" class="text-[#0000FF] hover:underline">Guestbook</a></li>
-              </ul>
-            </nav>
-            <div class="mt-4 text-center">
-              <img src="/IMG_6885.jpeg" alt="Me" class="mx-auto border-2 border-[#000080]" />
-              <p class="mt-2">That's me!</p>
-            </div>
-            <div class="mt-4 text-center">
-              <p>Visitors:</p>
-              <div id="visitor-count" class="bg-black text-[#00FF00] inline-block px-2 py-1 font-mono">
-                1337
+  <body>
+    <main class="bg-[#FFFFCC] text-[#000080] font-['Times_New_Roman',_Times,_serif] p-4 min-h-screen">
+      <table class="w-full max-w-3xl mx-auto border-2 border-[#000080]">
+        <tbody>
+          <tr>
+            <td colspan="2" class="bg-[#000080] text-[#FFFF00] text-center p-4">
+              <h1 class="text-4xl font-bold animate-pulse">Welcome to Quddus Cool Portfolio!</h1>
+            </td>
+          </tr>
+          <tr>
+            <td class="w-1/4 bg-[#CCCCFF] p-4 align-top">
+              <nav>
+                <ul class="list-disc list-inside">
+                  <li><a href="#about" class="text-[#0000FF] hover:underline">About Me</a></li>
+                  <li><a href="#skills" class="text-[#0000FF] hover:underline">My Skills</a></li>
+                  <li><a href="#projects" class="text-[#0000FF] hover:underline">Cool Projects</a></li>
+                  <li><a href="#guestbook" class="text-[#0000FF] hover:underline">Guestbook</a></li>
+                </ul>
+              </nav>
+              <div class="mt-4 text-center">
+                <img src="/IMG_6885.jpeg" alt="Me" class="mx-auto border-2 border-[#000080]" />
+                <p class="mt-2">That's me!</p>
               </div>
-            </div>
-            <Calendar />
-            <div class="mt-4 text-center">
-              <h3 class="text-lg font-bold mb-2">Follow Me</h3>
-              <div class="flex justify-center space-x-4">
-                <a href="https://github.com/nrmnqdds" target="_blank" rel="noopener noreferrer">
-                  <img src="/github.png" alt="GitHub" class="size-10 inline-block mr-1" />
-                </a>
-                <a href="https://www.linkedin.com/in/nuriman-quddus-911066210/" target="_blank" rel="noopener noreferrer">
-                  <img src="/linkedin.png" alt="LinkedIn" class="size-10 inline-block mr-1" />
-                </a>
-                <a href="https://twitter.com/nrmnqdds" target="_blank" rel="noopener noreferrer">
-                  <img src="/twitter.png" alt="Twitter" class="size-10 inline-block mr-1" />
-                </a>
-              </div>
-            </div>
-          </td>
-          <td class="p-4">
-            <marquee class="text-[#FF0000] text-xl font-bold">Welcome to my awesome portfolio site!</marquee>
-
-            <section id="about" class="mt-4">
-              <h2 class="text-2xl font-bold underline">About Me</h2>
-              <p>Hi there! I'm a software engineer who loves creating cool things. I love to learn new things everyday!</p>
-            </section>
-
-            <section id="ads" class="mt-4">
-              <a href="https://terbang.lol" target="_blank" rel="noreferrer noopener">
-                <div class="border border-[#000080] p-2 bg-[#E6E6FA]">
-                  <p class="text-xs text-[#006400]">Ad</p>
-                  <h3 class="text-[#0000FF] font-bold">Hot Singles in Your Area!</h3>
-                  <p class="text-sm">Meet local singles today! Click here for a good time!</p>
-                  <button class="bg-[#FFD700] text-[#000080] px-2 py-1 mt-2 text-sm">Click Now!</button>
-                </div>
-              </a>
-            </section>
-
-            <Skills />
-
-            <Projects />
-
-            <section id="timeline" class="mt-4">
-            <h2 class="text-2xl font-bold underline">Job Timeline</h2>
-            <table class="w-full border-collapse border border-[#000080] mt-2">
-              <tr class="bg-[#CCCCFF]">
-                <th class="border border-[#000080] p-2">Year</th>
-                <th class="border border-[#000080] p-2">Position</th>
-                <th class="border border-[#000080] p-2">Company</th>
-              </tr>
-              <tr>
-                <td class="border border-[#000080] p-2">2023 - Present</td>
-                <td class="border border-[#000080] p-2">Lead Software Engineer</td>
-                <td class="border border-[#000080] p-2">Azmi Productions</td>
-              </tr>
-              <tr>
-                <td class="border border-[#000080] p-2">2023 - Present</td>
-                <td class="border border-[#000080] p-2">Software Engineer</td>
-                <td class="border border-[#000080] p-2">Forthify</td>
-              </tr>
-              <tr>
-                <td class="border border-[#000080] p-2">2024</td>
-                <td class="border border-[#000080] p-2">Software Engineer</td>
-                <td class="border border-[#000080] p-2">Mulhaq</td>
-              </tr>
-            </table>
-          </section>
-
-            <section id="guestbook" class="mt-4">
-              <h2 class="text-2xl font-bold underline">Guestbook</h2>
-              <form id="guestbook-form" class="mt-2">
-                <input type="text" name="name" placeholder="Your Name" required class="border p-1 mr-2" />
-                <input type="text" name="message" placeholder="Your Message" required class="border p-1 mr-2" />
-                <button type="submit" class="bg-[#000080] text-[#FFFF00] px-2 py-1">Sign Guestbook</button>
-              </form>
-              <div id="guestbook-entries" class="mt-2 max-h-40 overflow-y-auto border p-2">
-                <div class="mb-2">
-                  <strong>Tom:</strong> Cool site!
-                </div>
-                <div class="mb-2">
-                  <strong>Jane:</strong> Love the design!
+              <div class="mt-4 text-center">
+                <p>Visitors:</p>
+                <div id="visitor-count" class="bg-black text-[#00FF00] inline-block px-2 py-1 font-mono">
+                  1337
                 </div>
               </div>
-            </section>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="2" class="bg-[#000080] text-[#FFFF00] text-center p-2">
-            <p>© 2024 Quddus Portfolio. Best viewed in Netscape Navigator.</p>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <a href="https://www.khrnchn.xyz/" target="_blank" rel="noreferrer noopener">
-      <div id="corner-ad" class="fixed bottom-4 right-4 w-64 border border-[#000080] p-2 bg-[#E6E6FA]">
-        <p class="text-xs text-[#006400]">Ad</p>
-        <h3 class="text-[#0000FF] font-bold">Amazing Web Hosting Deals!</h3>
-        <p class="text-sm">Get your website online today with our unbeatable prices!</p>
-        <button class="bg-[#FFD700] text-[#000080] px-2 py-1 mt-2 text-sm">Learn More</button>
-      </div>
-    </a>
-  </main>
+              <Calendar />
+              <div class="mt-4 text-center">
+                <h3 class="text-lg font-bold mb-2">Follow Me</h3>
+                <div class="flex justify-center space-x-4">
+                  <a href="https://github.com/nrmnqdds" target="_blank" rel="noopener noreferrer">
+                    <img src="/github.png" alt="GitHub" class="size-10 inline-block mr-1" />
+                  </a>
+                  <a href="https://www.linkedin.com/in/nuriman-quddus-911066210/" target="_blank" rel="noopener noreferrer">
+                    <img src="/linkedin.png" alt="LinkedIn" class="size-10 inline-block mr-1" />
+                  </a>
+                  <a href="https://twitter.com/nrmnqdds" target="_blank" rel="noopener noreferrer">
+                    <img src="/twitter.png" alt="Twitter" class="size-10 inline-block mr-1" />
+                  </a>
+                </div>
+              </div>
+            </td>
+            <td class="p-4">
+              <marquee class="text-[#FF0000] text-xl font-bold">Welcome to my awesome portfolio site!</marquee>
+
+              <section id="about" class="mt-4">
+                <h2 class="text-2xl font-bold underline">About Me</h2>
+                <p>Hi there! I'm a software engineer who loves creating cool things. I love to learn new things everyday!</p>
+              </section>
+
+              <section id="ads" class="mt-4">
+                <a href="https://terbang.lol" target="_blank" rel="noreferrer noopener">
+                  <div class="border border-[#000080] p-2 bg-[#E6E6FA]">
+                    <p class="text-xs text-[#006400]">Ad</p>
+                    <h3 class="text-[#0000FF] font-bold">Hot Singles in Your Area!</h3>
+                    <p class="text-sm">Meet local singles today! Click here for a good time!</p>
+                    <button class="bg-[#FFD700] text-[#000080] px-2 py-1 mt-2 text-sm">Click Now!</button>
+                  </div>
+                </a>
+              </section>
+
+              <Skills />
+
+              <Projects />
+
+              <section id="timeline" class="mt-4">
+                <h2 class="text-2xl font-bold underline">Job Timeline</h2>
+                <table class="w-full border-collapse border border-[#000080] mt-2">
+                  <tr class="bg-[#CCCCFF]">
+                    <th class="border border-[#000080] p-2">Year</th>
+                    <th class="border border-[#000080] p-2">Position</th>
+                    <th class="border border-[#000080] p-2">Company</th>
+                  </tr>
+                  <tr>
+                    <td class="border border-[#000080] p-2">2023 - Present</td>
+                    <td class="border border-[#000080] p-2">Lead Software Engineer</td>
+                    <td class="border border-[#000080] p-2">Azmi Productions</td>
+                  </tr>
+                  <tr>
+                    <td class="border border-[#000080] p-2">2023 - Present</td>
+                    <td class="border border-[#000080] p-2">Software Engineer</td>
+                    <td class="border border-[#000080] p-2">Forthify</td>
+                  </tr>
+                  <tr>
+                    <td class="border border-[#000080] p-2">2024</td>
+                    <td class="border border-[#000080] p-2">Software Engineer</td>
+                    <td class="border border-[#000080] p-2">Mulhaq</td>
+                  </tr>
+                </table>
+              </section>
+
+              <section id="guestbook" class="mt-4">
+                <h2 class="text-2xl font-bold underline">Guestbook</h2>
+                <form id="guestbook-form" class="mt-2">
+                  <input type="text" name="name" placeholder="Your Name" required class="border p-1 mr-2" />
+                  <input type="text" name="message" placeholder="Your Message" required class="border p-1 mr-2" />
+                  <button type="submit" class="bg-[#000080] text-[#FFFF00] px-2 py-1">Sign Guestbook</button>
+                </form>
+                <div id="guestbook-entries" class="mt-2 max-h-40 overflow-y-auto border p-2">
+                  <div class="mb-2">
+                    <strong>Tom:</strong> Cool site!
+                  </div>
+                  <div class="mb-2">
+                    <strong>Jane:</strong> Love the design!
+                  </div>
+                </div>
+              </section>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" class="bg-[#000080] text-[#FFFF00] text-center p-2">
+              <p>© 2024 Quddus Portfolio. Best viewed in Netscape Navigator.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <a href="https://www.khrnchn.xyz/" target="_blank" rel="noreferrer noopener">
+        <div id="corner-ad" class="fixed bottom-4 right-4 w-64 border border-[#000080] p-2 bg-[#E6E6FA]">
+          <p class="text-xs text-[#006400]">Ad</p>
+          <h3 class="text-[#0000FF] font-bold">Amazing Web Hosting Deals!</h3>
+          <p class="text-sm">Get your website online today with our unbeatable prices!</p>
+          <button class="bg-[#FFD700] text-[#000080] px-2 py-1 mt-2 text-sm">Learn More</button>
+        </div>
+      </a>
+    </main>
+
+    <!-- Cloudflare Web Analytics -->
+<script defer is:inline src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "e628ba653e2e4573a5481190172c09fa"}'></script>
+  <!-- End Cloudflare Web Analytics -->
 
 <script>
   // Visitor counter
@@ -203,4 +208,5 @@ import Calendar from "../components/home/calendar.astro";
     cursor: url('https://cdn-icons-png.flaticon.com/32/14105/14105980.png'), auto !important;
   }
 </style>
-  </html>
+  </body>
+</html>
