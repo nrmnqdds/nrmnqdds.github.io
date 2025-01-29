@@ -31,13 +31,17 @@ import Calendar from "../components/home/calendar.astro";
     <meta property="twitter:image" content="https://www.quddus.my/2024-11-07_21-23.png" />
   </head>
   <body>
-    <main class="bg-[#FFFFCC] text-[#000080] font-['Times_New_Roman',_Times,_serif] p-4 min-h-screen">
-      <div class="w-full max-w-3xl mx-auto border-2 border-[#000080]">
+    <main class="bg-[#FFFFCC] text-[#000080] font-['Times_New_Roman',_Times,_serif] p-2 sm:p-4 min-h-screen">
+      <div class="w-full max-w-4xl mx-auto border-2 border-[#000080]">
         <div class="bg-[#000080] text-[#FFFF00] text-center p-4">
-          <h1 class="text-2xl md:text-4xl font-bold animate-pulse">Welcome to Quddus Cool Portfolio!</h1>
+          <h1 class="text-2xl sm:text-4xl font-bold animate-pulse">Welcome to Quddus Cool Portfolio!</h1>
         </div>
         <div class="flex flex-col md:flex-row">
           <div class="md:w-1/4 bg-[#CCCCFF] p-4 align-top">
+              <div class="mt-4 text-center">
+                <img src="/IMG_6885.jpeg" alt="Me" class="mx-auto border-2 border-[#000080] w-32 sm:w-48 md:w-full" />
+                <p class="mt-2">That's me!</p>
+              </div>
               <nav>
                 <ul class="list-disc list-inside">
                   <li><a href="#about" class="text-[#0000FF] hover:underline">About Me</a></li>
@@ -46,10 +50,6 @@ import Calendar from "../components/home/calendar.astro";
                   <li><a href="#guestbook" class="text-[#0000FF] hover:underline">Guestbook</a></li>
                 </ul>
               </nav>
-              <div class="mt-4 text-center">
-                <img src="/IMG_6885.jpeg" alt="Me" class="mx-auto border-2 border-[#000080] w-full max-w-[200px]" />
-                <p class="mt-2">That's me!</p>
-              </div>
               <div class="mt-4 text-center">
                 <p>Visitors:</p>
                 <div id="visitor-count" class="bg-black text-[#00FF00] inline-block px-2 py-1 font-mono">
@@ -72,7 +72,7 @@ import Calendar from "../components/home/calendar.astro";
                 </div>
               </div>
             </div>
-            <div class="p-4 flex-1">
+            <div class="flex-1 p-4">
               <marquee class="text-[#FF0000] text-xl font-bold">Welcome to my awesome portfolio site!</marquee>
 
               <section id="about" class="mt-4">
@@ -125,9 +125,9 @@ import Calendar from "../components/home/calendar.astro";
 
               <section id="guestbook" class="mt-4">
                 <h2 class="text-2xl font-bold underline">Guestbook</h2>
-                <form id="guestbook-form" class="mt-2 flex flex-col md:flex-row gap-2">
-                  <input type="text" name="name" placeholder="Your Name" required class="border p-1" />
-                  <input type="text" name="message" placeholder="Your Message" required class="border p-1" />
+                <form id="guestbook-form" class="mt-2">
+                  <input type="text" name="name" placeholder="Your Name" required class="border p-1 mr-2" />
+                  <input type="text" name="message" placeholder="Your Message" required class="border p-1 mr-2" />
                   <button type="submit" class="bg-[#000080] text-[#FFFF00] px-2 py-1">Sign Guestbook</button>
                 </form>
                 <div id="guestbook-entries" class="mt-2 max-h-40 overflow-y-auto border p-2">
@@ -146,7 +146,7 @@ import Calendar from "../components/home/calendar.astro";
         </div>
       </div>
       <a href="https://www.khrnchn.xyz/" target="_blank" rel="noreferrer noopener">
-        <div id="corner-ad" class="fixed bottom-4 right-4 w-64 border border-[#000080] p-2 bg-[#E6E6FA] hidden md:block">
+        <div id="corner-ad" class="fixed bottom-4 right-4 w-48 sm:w-64 border border-[#000080] p-2 bg-[#E6E6FA] text-sm sm:text-base">
           <p class="text-xs text-[#006400]">Ad</p>
           <h3 class="text-[#0000FF] font-bold">Amazing Web Hosting Deals!</h3>
           <p class="text-sm">Get your website online today with our unbeatable prices!</p>

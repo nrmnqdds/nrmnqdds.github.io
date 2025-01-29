@@ -2,25 +2,27 @@
 ---
 <div class="mt-4 text-center">
   <p>Calendar:</p>
-  <table id="calendar" class="mx-auto border-collapse border border-[#000080]">
-    <thead>
-      <tr>
-        <th colspan="7" id="monthYear" class="border border-[#000080] p-1 bg-[#CCCCFF]"></th>
-      </tr>
-      <tr>
-        <th class="border border-[#000080] p-1 w-8">Su</th>
-        <th class="border border-[#000080] p-1 w-8">Mo</th>
-        <th class="border border-[#000080] p-1 w-8">Tu</th>
-        <th class="border border-[#000080] p-1 w-8">We</th>
-        <th class="border border-[#000080] p-1 w-8">Th</th>
-        <th class="border border-[#000080] p-1 w-8">Fr</th>
-        <th class="border border-[#000080] p-1 w-8">Sa</th>
-      </tr>
-    </thead>
-    <tbody id="calendarBody">
-    </tbody>
-  <div id="clock" class="mt-2 text-xl font-bold"></div>
-  </table>
+  <div class="w-full">
+    <table id="calendar" class="w-full border-collapse border border-[#000080]">
+      <thead>
+        <tr>
+          <th colspan="7" id="monthYear" class="border border-[#000080] p-1 bg-[#CCCCFF]"></th>
+        </tr>
+        <tr>
+          <th class="border border-[#000080] p-1 w-[14.28%]">Su</th>
+          <th class="border border-[#000080] p-1 w-[14.28%]">Mo</th>
+          <th class="border border-[#000080] p-1 w-[14.28%]">Tu</th>
+          <th class="border border-[#000080] p-1 w-[14.28%]">We</th>
+          <th class="border border-[#000080] p-1 w-[14.28%]">Th</th>
+          <th class="border border-[#000080] p-1 w-[14.28%]">Fr</th>
+          <th class="border border-[#000080] p-1 w-[14.28%]">Sa</th>
+        </tr>
+      </thead>
+      <tbody id="calendarBody">
+      </tbody>
+    </table>
+    <div id="clock" class="mt-2 text-xl font-bold"></div>
+  </div>
 </div>
 
 <script>
@@ -44,14 +46,14 @@
       for (let j = 0; j < 7; j++) {
         if (i === 0 && j < firstDay.getDay()) {
           const cell = document.createElement('td');
-          cell.className = 'border border-[#000080] p-1';
+          cell.className = 'border border-[#000080] p-1 text-center h-8';
           row.appendChild(cell);
         } else if (date > lastDay.getDate()) {
           break;
         } else {
           const cell = document.createElement('td');
           cell.textContent = date.toString();
-          cell.className = 'border border-[#000080] p-1';
+          cell.className = 'border border-[#000080] p-1 text-center h-8';
           if (date === today.getDate()) {
             cell.classList.add('bg-[#FFFF00]');
           }
