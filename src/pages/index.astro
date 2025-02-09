@@ -1,8 +1,8 @@
 ---
 
+import Calendar from "../components/home/calendar.astro";
 import Projects from "../components/home/projects.astro";
 import Skills from "../components/home/skills.astro";
-import Calendar from "../components/home/calendar.astro";
 ---
 
 <html lang="en">
@@ -99,28 +99,23 @@ import Calendar from "../components/home/calendar.astro";
                 <h2 class="text-2xl font-bold underline">Job Timeline</h2>
                 <div class="overflow-x-auto">
                   <table class="w-full border-collapse border border-[#000080] mt-2">
-                  <tr class="bg-[#CCCCFF]">
-                    <th class="border border-[#000080] p-2">Year</th>
-                    <th class="border border-[#000080] p-2">Position</th>
-                    <th class="border border-[#000080] p-2">Company</th>
-                  </tr>
-                  <tr>
-                    <td class="border border-[#000080] p-2">2023 - Present</td>
-                    <td class="border border-[#000080] p-2">Lead Software Engineer</td>
-                    <td class="border border-[#000080] p-2">Azmi Productions</td>
-                  </tr>
-                  <tr>
-                    <td class="border border-[#000080] p-2">2023 - Present</td>
-                    <td class="border border-[#000080] p-2">Software Engineer</td>
-                    <td class="border border-[#000080] p-2">Forthify</td>
-                  </tr>
-                  <tr>
-                    <td class="border border-[#000080] p-2">2024</td>
-                    <td class="border border-[#000080] p-2">Software Engineer</td>
-                    <td class="border border-[#000080] p-2">Mulhaq</td>
-                  </tr>
-                </table>
-                                </div>
+                    <tr class="bg-[#CCCCFF]">
+                      <th class="border border-[#000080] p-2">Year</th>
+                      <th class="border border-[#000080] p-2">Position</th>
+                      <th class="border border-[#000080] p-2">Company</th>
+                    </tr>
+                    <tr>
+                      <td class="border border-[#000080] p-2">Feb 2025 - Present</td>
+                      <td class="border border-[#000080] p-2">Software Engineer</td>
+                      <td class="border border-[#000080] p-2">Cartridge Gaming Company</td>
+                    </tr>
+                    <tr>
+                      <td class="border border-[#000080] p-2">Sept 2023 - Dec 2024</td>
+                      <td class="border border-[#000080] p-2">Lead Software Engineer</td>
+                      <td class="border border-[#000080] p-2">Azmi Productions</td>
+                    </tr>
+                  </table>
+                </div>
               </section>
 
               <section id="guestbook" class="mt-4">
@@ -145,7 +140,7 @@ import Calendar from "../components/home/calendar.astro";
           <p>© 2024 Quddus Portfolio. Best viewed in Netscape Navigator.</p>
         </div>
       </div>
-      <a href="https://www.khrnchn.xyz/" target="_blank" rel="noreferrer noopener">
+      <a href="https://www.khrnchn.xyz/" target="_blank" rel="noreferrer noopener" class="hidden md:block">
         <div id="corner-ad" class="fixed bottom-4 right-4 w-48 sm:w-64 border border-[#000080] p-2 bg-[#E6E6FA] text-sm sm:text-base">
           <p class="text-xs text-[#006400]">Ad</p>
           <h3 class="text-[#0000FF] font-bold">Amazing Web Hosting Deals!</h3>
