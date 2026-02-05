@@ -1,0 +1,137 @@
+---
+import Layout from "../components/Layout.astro";
+import { getBlogPostsMeta } from "../utils/blog.ts";
+
+const blogPosts = getBlogPostsMeta();
+---
+
+<Layout title="Blog - Quddus Portfolio" description="Check out my latest blog posts about web development, programming, and technology!">
+  <div class="whitespace-nowrap [mask-image:_linear-gradient(to_right,_transparent_0,_white_128px,white_calc(100%-128px),_transparent_100%)]">
+    {[1, 2].map(() => (
+      <div class="animate-slide-left-infinite inline-block w-max">
+        {[...Array(6)].map(() => (
+          <p class="mx-4 inline text-[#FF0000] text-xl font-bold">
+            Welcome to My Blog
+          </p>
+        ))}
+      </div>
+    ))}
+  </div>
+
+  <section class="mt-6">
+    <h2 class="text-3xl font-bold underline text-center mb-6">My Awesome Blog Posts!</h2>
+
+    <div class="bg-[#E6E6FA] border-2 border-[#000080] p-4 mb-6">
+      <h3 class="text-lg font-bold text-[#8B0000] mb-2">📝 Latest Thoughts & Adventures</h3>
+      <p class="text-sm">
+        Welcome to my blog section! Here I share my thoughts about web development, programming adventures,
+        and random tech musings. Grab a coffee and enjoy the ride! ☕
+      </p>
+    </div>
+
+    {blogPosts.length === 0 ? (
+      <div class="text-center p-8 border-2 border-[#000080] bg-[#FFCCCC]">
+        <h3 class="text-xl font-bold text-[#8B0000] mb-2">Under Construction! 🚧</h3>
+        <p>No blog posts yet, but awesome content is coming soon!</p>
+        <div class="mt-4">
+          <img src="https://media.giphy.com/media/3o7bu8sRnYpTOG1p8Q/giphy.gif" alt="Under Construction" class="mx-auto w-32 h-24 border border-[#000080]" />
+        </div>
+      </div>
+    ) : (
+      <div class="space-y-6">
+        {blogPosts.map((post, index) => (
+          <article class="border-2 border-[#000080] bg-white p-4 hover:bg-[#F0F8FF] transition-colors">
+            <div class="flex items-start justify-between mb-3">
+              <h3 class="text-xl font-bold text-[#000080] hover:text-[#0000FF]">
+                <a href={`/blog/${post.slug}`} class="hover:underline">{post.title}</a>
+              </h3>
+              <span class="bg-[#FFD700] text-[#000080] px-2 py-1 text-sm font-bold ml-4 whitespace-nowrap">
+                #{String(index + 1).padStart(3, '0')}
+              </span>
+            </div>
+
+            <div class="flex items-center mb-3 text-sm">
+              <span class="bg-[#000080] text-[#FFFF00] px-2 py-1 font-mono">
+                📅 {new Date(post.date).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                })}
+              </span>
+              {post.tags.length > 0 && (
+                <div class="ml-4 flex flex-wrap gap-1">
+                  {post.tags.map((tag) => (
+                    <span class="bg-[#CCCCFF] text-[#000080] px-2 py-1 text-xs border border-[#000080]">
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <p class="text-[#333] mb-4 leading-relaxed">
+              {post.description}
+            </p>
+
+            <div class="flex items-center justify-between">
+              <a
+                href={`/blog/${post.slug}`}
+                class="bg-[#0000FF] text-white px-4 py-2 font-bold hover:bg-[#000080] border-2 border-[#000080] transition-colors"
+              >
+                🔗 Read Full Post
+              </a>
+              <div class="text-xs text-[#666] flex items-center space-x-4">
+                <span>💬 Comments: {Math.floor(Math.random() * 25) + 1}</span>
+                <span>👀 Views: {Math.floor(Math.random() * 500) + 50}</span>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    )}
+
+    <div class="mt-8 text-center">
+      <div class="bg-[#E6E6FA] border border-[#000080] p-4 inline-block">
+        <h3 class="font-bold text-[#000080] mb-2">🎯 Want to stay updated?</h3>
+        <p class="text-sm mb-3">Subscribe to my totally legitimate newsletter!</p>
+        <div class="flex items-center justify-center space-x-2">
+          <input
+            type="email"
+            placeholder="your@email.com"
+            class="border border-[#000080] px-2 py-1 text-sm"
+          />
+          <button class="bg-[#FFD700] text-[#000080] px-3 py-1 text-sm font-bold border border-[#000080] hover:bg-[#FFA500]">
+            Subscribe!
+          </button>
+        </div>
+        <p class="text-xs mt-2 text-[#666]">
+          * No spam, just awesome content! (Probably)
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-6 text-center">
+      <div class="bg-[#FFEECC] border border-[#FF6600] p-3 inline-block">
+        <p class="text-sm">
+          <span class="text-[#FF6600] font-bold">💡 Pro Tip:</span>
+          Press Ctrl+F5 to refresh if the content looks weird. It's not a bug, it's a feature! 😄
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  @keyframes slide-left {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  .animate-slide-left-infinite {
+    animation: slide-left 20s linear infinite;
+  }
+</style>

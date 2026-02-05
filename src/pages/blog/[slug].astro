@@ -1,0 +1,249 @@
+---
+import Layout from "../../components/Layout.astro";
+import { getAllBlogPosts } from "../../utils/blog.ts";
+
+export async function getStaticPaths() {
+  const posts = getAllBlogPosts();
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+
+if (!post) {
+  return Astro.redirect("/blog");
+}
+
+// Simple markdown to HTML converter
+function markdownToHtml(markdown: string): string {
+  let html = markdown;
+
+  // Headers
+  html = html.replace(/^### (.*$)/gim, '<h3 class="text-xl font-bold text-[#000080] mt-6 mb-3 underline">$1</h3>');
+  html = html.replace(/^## (.*$)/gim, '<h2 class="text-2xl font-bold text-[#000080] mt-8 mb-4 underline">$1</h2>');
+  html = html.replace(/^# (.*$)/gim, '<h1 class="text-3xl font-bold text-[#000080] mt-8 mb-6 underline">$1</h1>');
+
+  // Bold and Italic
+  html = html.replace(/\*\*\*(.*?)\*\*\*/g, '<strong><em>$1</em></strong>');
+  html = html.replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-[#8B0000]">$1</strong>');
+  html = html.replace(/\*(.*?)\*/g, '<em class="italic">$1</em>');
+
+  // Code blocks
+  html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, '<pre class="bg-black text-[#00FF00] p-4 my-4 overflow-x-auto border border-[#000080] font-mono text-sm"><code>$2</code></pre>');
+
+  // Inline code
+  html = html.replace(/`([^`]+)`/g, '<code class="bg-[#F0F0F0] text-[#8B0000] px-1 py-0.5 font-mono text-sm border">$1</code>');
+
+  // Links
+  html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-[#0000FF] hover:underline hover:text-[#FF0000]" target="_blank" rel="noopener noreferrer">$1 🔗</a>');
+
+  // Lists
+  html = html.replace(/^\* (.+$)/gim, '<li class="ml-4">• $1</li>');
+  html = html.replace(/^\d+\. (.+$)/gim, '<li class="ml-4">$1</li>');
+
+  // Wrap consecutive list items
+  html = html.replace(/(<li.*?<\/li>\s*)+/g, (match) => {
+    return `<ul class="my-4 space-y-1">${match}</ul>`;
+  });
+
+  // Tables (basic support)
+  const tableRegex = /(\|.*\|[\r\n]+)+/g;
+  html = html.replace(tableRegex, (match) => {
+    const rows = match.trim().split('\n');
+    if (rows.length < 2) return match;
+
+    const headerRow = rows[0];
+    // Skip separator row
+    rows[1];
+    const dataRows = rows.slice(2);
+
+    let tableHtml = '<table class="w-full border-collapse border border-[#000080] my-6">';
+
+    // Header
+    const headerCells = headerRow.split('|').slice(1, -1).map(cell => cell.trim());
+    tableHtml += '<tr class="bg-[#CCCCFF]">';
+    headerCells.forEach(cell => {
+      tableHtml += `<th class="border border-[#000080] p-2 font-bold">${cell}</th>`;
+    });
+    tableHtml += '</tr>';
+
+    // Data rows
+    dataRows.forEach(row => {
+      const cells = row.split('|').slice(1, -1).map(cell => cell.trim());
+      tableHtml += '<tr>';
+      cells.forEach(cell => {
+        tableHtml += `<td class="border border-[#000080] p-2">${cell}</td>`;
+      });
+      tableHtml += '</tr>';
+    });
+
+    tableHtml += '</table>';
+    return tableHtml;
+  });
+
+  // Paragraphs
+  html = html.replace(/\n\n/g, '</p><p class="mb-4">');
+  html = `<p class="mb-4">${html}</p>`;
+
+  // Clean up empty paragraphs
+  html = html.replace(/<p class="mb-4"><\/p>/g, '');
+
+  return html;
+}
+
+const contentHtml = markdownToHtml(post.content);
+---
+
+<Layout title={`${post.title} - Blog`} description={post.description}>
+  <div class="mb-6">
+    <nav class="text-sm mb-4">
+      <a href="/" class="text-[#0000FF] hover:underline">🏠 Home</a>
+      <span class="mx-2">></span>
+      <a href="/blog" class="text-[#0000FF] hover:underline">📝 Blog</a>
+      <span class="mx-2">></span>
+      <span class="text-[#666]">{post.title}</span>
+    </nav>
+  </div>
+
+  <article class="bg-white border-2 border-[#000080] p-6">
+    <header class="mb-6 pb-4 border-b-2 border-[#CCCCFF]">
+      <h1 class="text-3xl font-bold text-[#000080] mb-4">{post.title}</h1>
+
+      <div class="flex flex-wrap items-center gap-4 mb-4">
+        <div class="bg-[#000080] text-[#FFFF00] px-3 py-1 font-mono text-sm">
+          📅 {new Date(post.date).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          })}
+        </div>
+
+        {post.tags.length > 0 && (
+          <div class="flex flex-wrap gap-2">
+            {post.tags.map((tag) => (
+              <span class="bg-[#CCCCFF] text-[#000080] px-2 py-1 text-sm border border-[#000080]">
+                #{tag}
+              </span>
+            ))}
+          </div>
+        )}
+
+        <div class="flex items-center space-x-4 text-xs text-[#666]">
+          <span>💬 {Math.floor(Math.random() * 25) + 1} comments</span>
+          <span>👀 {Math.floor(Math.random() * 500) + 50} views</span>
+          <span>⏱️ {Math.floor(Math.random() * 10) + 3} min read</span>
+        </div>
+      </div>
+
+      <div class="bg-[#E6E6FA] border border-[#000080] p-3">
+        <p class="text-[#333] font-semibold">{post.description}</p>
+      </div>
+    </header>
+
+    <div class="prose prose-blue max-w-none">
+      <div set:html={contentHtml} class="leading-relaxed text-[#333]" />
+    </div>
+
+    <footer class="mt-8 pt-6 border-t-2 border-[#CCCCFF]">
+      <div class="bg-[#FFEECC] border border-[#FF6600] p-4 mb-6">
+        <h3 class="font-bold text-[#FF6600] mb-2">👋 Thanks for reading!</h3>
+        <p class="text-sm mb-3">
+          Did you enjoy this post? Let me know what you think! I love hearing from readers.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <button class="bg-[#0000FF] text-white px-3 py-1 text-sm font-bold hover:bg-[#000080] border border-[#000080]">
+            👍 Like
+          </button>
+          <button class="bg-[#FFD700] text-[#000080] px-3 py-1 text-sm font-bold hover:bg-[#FFA500] border border-[#000080]">
+            💬 Comment
+          </button>
+          <button class="bg-[#FF6600] text-white px-3 py-1 text-sm font-bold hover:bg-[#FF4500] border border-[#000080]">
+            🔄 Share
+          </button>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center">
+        <a href="/blog" class="bg-[#CCCCFF] text-[#000080] px-4 py-2 font-bold hover:bg-[#AAAAFF] border-2 border-[#000080]">
+          ← Back to Blog
+        </a>
+
+        <div class="text-sm text-[#666]">
+          <p>Written with ❤️ by Quddus</p>
+          <p class="text-xs">Last updated: {new Date().toLocaleDateString()}</p>
+        </div>
+      </div>
+    </footer>
+  </article>
+
+  <div class="mt-6 bg-[#E6E6FA] border border-[#000080] p-4">
+    <h3 class="font-bold text-[#000080] mb-3">💌 Want more awesome content?</h3>
+    <div class="flex flex-col sm:flex-row items-center justify-between">
+      <p class="text-sm mb-2 sm:mb-0">
+        Subscribe to get notified when I publish new posts!
+      </p>
+      <div class="flex items-center space-x-2">
+        <input
+          type="email"
+          placeholder="your@email.com"
+          class="border border-[#000080] px-2 py-1 text-sm"
+        />
+        <button class="bg-[#FFD700] text-[#000080] px-3 py-1 text-sm font-bold border border-[#000080] hover:bg-[#FFA500]">
+          Subscribe!
+        </button>
+      </div>
+    </div>
+    <p class="text-xs mt-2 text-[#666]">
+      * No spam ever, just quality content delivered straight to your inbox!
+    </p>
+  </div>
+
+  <div class="mt-4 text-center">
+    <div class="bg-[#CCFFCC] border border-[#00AA00] p-2 inline-block">
+      <p class="text-xs">
+        <span class="text-[#00AA00] font-bold">🌟 Enjoying the retro vibe?</span>
+        This website is best experienced with a dial-up connection! 📞
+      </p>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  /* Enhanced styling for blog content */
+  .prose h1, .prose h2, .prose h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .prose p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+  }
+
+  .prose ul, .prose ol {
+    margin: 1rem 0;
+  }
+
+  .prose li {
+    margin-bottom: 0.5rem;
+  }
+
+  .prose pre {
+    margin: 1.5rem 0;
+    border-radius: 0;
+  }
+
+  .prose code {
+    font-size: 0.875rem;
+  }
+
+  .prose blockquote {
+    border-left: 4px solid #000080;
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    background: #F8F8FF;
+    font-style: italic;
+  }
+</style>

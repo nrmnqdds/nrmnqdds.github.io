@@ -3,6 +3,9 @@
 import Calendar from "../components/home/calendar.astro";
 import Projects from "../components/home/projects.astro";
 import Skills from "../components/home/skills.astro";
+import { getBlogPostsMeta } from "../utils/blog.ts";
+
+const latestBlogPosts = getBlogPostsMeta().slice(0, 3);
 ---
 
 <html lang="en">
@@ -44,6 +47,7 @@ import Skills from "../components/home/skills.astro";
               </div>
               <nav>
                 <ul class="list-disc list-inside">
+                  <li><a href="/blog" class="text-[#0000FF] hover:underline">Blog</a></li>
                   <li><a href="#about" class="text-[#0000FF] hover:underline">About Me</a></li>
                   <li><a href="#skills" class="text-[#0000FF] hover:underline">My Skills</a></li>
                   <li><a href="#projects" class="text-[#0000FF] hover:underline">Cool Projects</a></li>
@@ -104,6 +108,40 @@ import Skills from "../components/home/skills.astro";
               <Skills />
 
               <Projects />
+
+              <section id="blog" class="mt-4">
+                <h2 class="text-2xl font-bold underline">Latest Blog Posts</h2>
+                {latestBlogPosts.length > 0 ? (
+                  <div class="mt-4 space-y-3">
+                    {latestBlogPosts.map((post) => (
+                      <div class="bg-[#E6E6FA] border border-[#000080] p-3">
+                        <div class="flex items-start justify-between">
+                          <h3 class="text-lg font-bold text-[#000080] hover:text-[#0000FF]">
+                            <a href={`/blog/${post.slug}`} class="hover:underline">{post.title}</a>
+                          </h3>
+                          <span class="bg-[#FFD700] text-[#000080] px-2 py-1 text-xs font-bold">
+                            NEW!
+                          </span>
+                        </div>
+                        <p class="text-sm mt-2 text-[#333]">{post.description}</p>
+                        <div class="flex items-center justify-between mt-2">
+                          <span class="text-xs text-[#666]">{new Date(post.date).toLocaleDateString()}</span>
+                          <a href={`/blog/${post.slug}`} class="text-[#0000FF] text-xs hover:underline">Read more →</a>
+                        </div>
+                      </div>
+                    ))}
+                    <div class="text-center mt-4">
+                      <a href="/blog" class="bg-[#0000FF] text-white px-4 py-2 font-bold hover:bg-[#000080] border-2 border-[#000080]">
+                        📝 View All Blog Posts
+                      </a>
+                    </div>
+                  </div>
+                ) : (
+                  <div class="mt-4 bg-[#FFEECC] border border-[#FF6600] p-4 text-center">
+                    <p class="text-sm">🚧 Blog section coming soon! Stay tuned for awesome content!</p>
+                  </div>
+                )}
+              </section>
 
               <section id="timeline" class="mt-4">
                 <h2 class="text-2xl font-bold underline">Job Timeline</h2>

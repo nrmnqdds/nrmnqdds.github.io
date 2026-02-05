@@ -1,0 +1,494 @@
+/* 90s Retro Website Styles */
+/* Making the web fun again, one CSS rule at a time! */
+
+/* Custom retro scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background: #CCCCFF;
+  border: 2px inset #000080;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #000080;
+  border: 1px outset #000080;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0000FF;
+}
+
+/* Retro button styles */
+.retro-button {
+  background: #C0C0C0;
+  border: 2px outset #C0C0C0;
+  padding: 4px 8px;
+  font-family: 'MS Sans Serif', sans-serif;
+  font-size: 11px;
+  cursor: pointer;
+  transition: none;
+}
+
+.retro-button:hover {
+  background: #E0E0E0;
+}
+
+.retro-button:active {
+  border: 2px inset #C0C0C0;
+  background: #A0A0A0;
+}
+
+/* Classic hyperlink styles */
+a {
+  color: #0000FF;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #800080;
+}
+
+a:hover {
+  color: #FF0000;
+  background-color: #FFFF00;
+}
+
+/* Retro form elements */
+input[type="text"], input[type="email"], textarea {
+  border: 2px inset #C0C0C0;
+  padding: 2px;
+  font-family: 'MS Sans Serif', sans-serif;
+  font-size: 11px;
+  background: white;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+  outline: 1px dotted #000080;
+  outline-offset: -2px;
+}
+
+/* Classic table styling */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+/* Retro status bar */
+.status-bar {
+  background: #C0C0C0;
+  border-top: 1px solid #FFFFFF;
+  border-left: 1px solid #FFFFFF;
+  border-right: 1px solid #808080;
+  border-bottom: 1px solid #808080;
+  padding: 2px 4px;
+  font-size: 11px;
+  font-family: 'MS Sans Serif', sans-serif;
+}
+
+/* Window chrome effect */
+.window-chrome {
+  background: #C0C0C0;
+  border: 2px outset #C0C0C0;
+  margin: 4px;
+}
+
+.window-title-bar {
+  background: linear-gradient(to right, #000080, #000040);
+  color: white;
+  padding: 2px 4px;
+  font-size: 11px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.window-controls {
+  display: flex;
+  gap: 2px;
+}
+
+.window-control {
+  width: 16px;
+  height: 14px;
+  background: #C0C0C0;
+  border: 1px outset #C0C0C0;
+  font-size: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Blink animation (for the nostalgia) */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.blink {
+  animation: blink 1s linear infinite;
+}
+
+/* Marquee alternative using CSS */
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.marquee {
+  white-space: nowrap;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.marquee span {
+  display: inline-block;
+  animation: marquee 15s linear infinite;
+}
+
+/* Under construction styling */
+.under-construction {
+  background: repeating-linear-gradient(
+    45deg,
+    #FFFF00,
+    #FFFF00 10px,
+    #FF0000 10px,
+    #FF0000 20px
+  );
+  color: #000;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  border: 3px solid #000;
+  animation: blink 0.5s ease-in-out infinite alternate;
+}
+
+/* Retro progress bar */
+.progress-bar {
+  width: 200px;
+  height: 20px;
+  background: #C0C0C0;
+  border: 2px inset #C0C0C0;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    #000080,
+    #000080 4px,
+    #0000FF 4px,
+    #0000FF 8px
+  );
+  transition: width 0.3s ease;
+}
+
+/* Visitor counter styling */
+.visitor-counter {
+  background: #000;
+  color: #00FF00;
+  font-family: 'Courier New', monospace;
+  padding: 4px 8px;
+  border: 2px inset #C0C0C0;
+  display: inline-block;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* Retro alert/message boxes */
+.alert-box {
+  background: #C0C0C0;
+  border: 2px outset #C0C0C0;
+  padding: 8px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 200px;
+  box-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+  z-index: 1000;
+}
+
+.alert-title-bar {
+  background: linear-gradient(to right, #000080, #000040);
+  color: white;
+  margin: -8px -8px 8px -8px;
+  padding: 2px 4px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+/* Retro list styling */
+ul.retro-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul.retro-list li:before {
+  content: "► ";
+  color: #FF0000;
+  font-weight: bold;
+}
+
+/* Classic HR styling */
+hr.retro {
+  border: none;
+  border-top: 2px groove #C0C0C0;
+  height: 4px;
+}
+
+/* Animated rainbow text */
+@keyframes rainbow-text {
+  0% { color: #FF0000; }
+  14% { color: #FF8000; }
+  28% { color: #FFFF00; }
+  42% { color: #00FF00; }
+  57% { color: #00FFFF; }
+  71% { color: #0000FF; }
+  85% { color: #8000FF; }
+  100% { color: #FF0000; }
+}
+
+.rainbow-text {
+  animation: rainbow-text 2s linear infinite;
+  font-weight: bold;
+}
+
+/* Sparkle animation */
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+.sparkle {
+  position: relative;
+  display: inline-block;
+}
+
+.sparkle:after {
+  content: "✨";
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  animation: sparkle 1.5s ease-in-out infinite;
+}
+
+/* Retro code block styling */
+pre.retro-code {
+  background: #000;
+  color: #00FF00;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  padding: 8px;
+  border: 2px inset #C0C0C0;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+/* Glow effect for special elements */
+.retro-glow {
+  text-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor;
+}
+
+/* 90s style tooltip */
+.tooltip {
+  position: relative;
+  cursor: help;
+}
+
+.tooltip:hover:after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #FFFFCC;
+  border: 1px solid #000;
+  padding: 4px 8px;
+  font-size: 11px;
+  white-space: nowrap;
+  z-index: 1000;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Retro loading animation */
+@keyframes loading-dots {
+  0%, 20% { opacity: 0; }
+  50% { opacity: 1; }
+  80%, 100% { opacity: 0; }
+}
+
+.loading {
+  display: inline-block;
+}
+
+.loading:after {
+  content: "⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏";
+  animation: loading-dots 2s ease-in-out infinite;
+  font-family: monospace;
+}
+
+/* Classic image styling */
+img.retro {
+  border: 2px outset #C0C0C0;
+  padding: 2px;
+  background: #C0C0C0;
+}
+
+/* 90s style navigation menu */
+.retro-nav {
+  background: #C0C0C0;
+  border: 1px solid #808080;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+}
+
+.retro-nav li {
+  position: relative;
+  border-right: 1px solid #808080;
+}
+
+.retro-nav a {
+  display: block;
+  padding: 4px 12px;
+  text-decoration: none;
+  color: #000;
+  font-size: 11px;
+  font-family: 'MS Sans Serif', sans-serif;
+}
+
+.retro-nav a:hover {
+  background: #0000FF;
+  color: white;
+}
+
+/* Fun cursor trails (optional enhancement) */
+.cursor-trail {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #FF0000;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: fade-out 1s ease-out forwards;
+}
+
+@keyframes fade-out {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0); }
+}
+
+/* Retro checkbox styling */
+input[type="checkbox"] {
+  width: 13px;
+  height: 13px;
+  border: 2px inset #C0C0C0;
+  background: white;
+  appearance: none;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+  background: #C0C0C0;
+  position: relative;
+}
+
+input[type="checkbox"]:checked:after {
+  content: "✓";
+  position: absolute;
+  top: -2px;
+  left: 1px;
+  font-size: 10px;
+  color: #000;
+}
+
+/* Selection styling */
+::selection {
+  background: #000080;
+  color: white;
+}
+
+::-moz-selection {
+  background: #000080;
+  color: white;
+}
+
+/* Print styles (because even in the 90s we printed) */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  a:after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Mobile responsiveness (90s style) */
+@media (max-width: 640px) {
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-stack {
+    display: block !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  * {
+    border-color: black !important;
+  }
+
+  a {
+    color: blue !important;
+  }
+
+  a:visited {
+    color: purple !important;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *:before,
+  *:after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Easter egg: Konami code styling */
+.konami-activated {
+  background: repeating-linear-gradient(
+    45deg,
+    #FF0000,
+    #FF0000 10px,
+    #00FF00 10px,
+    #00FF00 20px,
+    #0000FF 20px,
+    #0000FF 30px
+  ) !important;
+  animation: rainbow-background 2s linear infinite !important;
+}
+
+@keyframes rainbow-background {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}

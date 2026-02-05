@@ -1,0 +1,135 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  showNavigation?: boolean;
+}
+
+const { title, description, showNavigation = true } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/png" href="/20230929_160932615_iOS.png" />
+    <title>{title}</title>
+    <link rel="canonical" href="https://www.quddus.my/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.quddus.my/" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://www.quddus.my/2024-11-07_21-23.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.quddus.my/" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content="https://www.quddus.my/2024-11-07_21-23.png" />
+  </head>
+  <body>
+    <main class="bg-[#FFFFCC] text-[#000080] font-['Times_New_Roman',_Times,_serif] p-2 sm:p-4 min-h-screen">
+      <div class="w-full max-w-4xl mx-auto border-2 border-[#000080]">
+        <div class="bg-[#000080] text-[#FFFF00] text-center p-4">
+          <h1 class="text-2xl sm:text-4xl font-bold animate-pulse">
+            <a href="/" class="hover:underline">Quddus Cool Portfolio!</a>
+          </h1>
+        </div>
+        <div class="flex flex-col md:flex-row">
+          {showNavigation && (
+            <div class="md:w-1/4 bg-[#CCCCFF] p-4 align-top">
+              <div class="mt-4 text-center">
+                <img src="/IMG_6885.jpeg" alt="Me" class="mx-auto border-2 border-[#000080] w-32 sm:w-48 md:w-full" />
+                <p class="mt-2">That's me!</p>
+              </div>
+              <nav>
+                <ul class="list-disc list-inside">
+                  <li><a href="/" class="text-[#0000FF] hover:underline">Home</a></li>
+                  <li><a href="/blog" class="text-[#0000FF] hover:underline">Blog</a></li>
+                  <li><a href="/#about" class="text-[#0000FF] hover:underline">About Me</a></li>
+                  <li><a href="/#skills" class="text-[#0000FF] hover:underline">My Skills</a></li>
+                  <li><a href="/#projects" class="text-[#0000FF] hover:underline">Cool Projects</a></li>
+                  <li><a href="/#guestbook" class="text-[#0000FF] hover:underline">Guestbook</a></li>
+                </ul>
+              </nav>
+              <div class="mt-4 text-center">
+                <p>Visitors:</p>
+                <div id="visitor-count" class="bg-black text-[#00FF00] inline-block px-2 py-1 font-mono">
+                  1337
+                </div>
+              </div>
+              <div class="mt-4">
+                <h3 class="font-bold text-center mb-2">Quick Links</h3>
+                <div class="text-sm space-y-1">
+                  <div class="text-center">
+                    <span class="bg-[#FFD700] px-2 py-1 text-[#000080]">NEW!</span>
+                    <a href="/blog" class="ml-1 text-[#0000FF] hover:underline">Latest Blog Posts</a>
+                  </div>
+                  <div class="text-center">
+                    <span class="text-[#FF0000]">★</span>
+                    <a href="/#projects" class="ml-1 text-[#0000FF] hover:underline">Cool Projects</a>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-4 text-center">
+                <h3 class="text-lg font-bold mb-2">Follow Me</h3>
+                <div class="flex justify-center space-x-4">
+                  <a href="https://github.com/nrmnqdds" target="_blank" rel="noopener noreferrer">
+                    <img src="/github.png" alt="GitHub" class="size-10 inline-block mr-1" />
+                  </a>
+                  <a href="https://www.linkedin.com/in/nuriman-quddus-911066210/" target="_blank" rel="noopener noreferrer">
+                    <img src="/linkedin.png" alt="LinkedIn" class="size-10 inline-block mr-1" />
+                  </a>
+                  <a href="https://twitter.com/nrmnqdds" target="_blank" rel="noopener noreferrer">
+                    <img src="/twitter.png" alt="Twitter" class="size-10 inline-block mr-1" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          )}
+          <div class={showNavigation ? "flex-1 p-4 relative overflow-hidden" : "w-full p-4 relative overflow-hidden"}>
+            <slot />
+          </div>
+        </div>
+        <div class="bg-[#000080] text-[#FFFF00] text-center p-2">
+          <p>© 2024 Quddus Portfolio. Best viewed in Netscape Navigator.</p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Cloudflare Web Analytics -->
+    <script defer is:inline src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "e628ba653e2e4573a5481190172c09fa"}'></script>
+    <!-- End Cloudflare Web Analytics -->
+
+    <script>
+      // Visitor counter
+      let visitorCount = 1337;
+      const visitorCountElement = document.getElementById('visitor-count');
+      if (visitorCountElement) {
+        setInterval(() => {
+          visitorCount++;
+          visitorCountElement.textContent = visitorCount.toString();
+        }, 60000);
+      }
+    </script>
+
+    <style>
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.5; }
+      }
+      .animate-pulse {
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+
+      html, * {
+        cursor: url('https://cdn-icons-png.flaticon.com/32/14105/14105980.png'), auto !important;
+      }
+    </style>
+  </body>
+</html>
