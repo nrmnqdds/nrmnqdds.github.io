@@ -113,15 +113,17 @@ const latestBlogPosts = getBlogPostsMeta().slice(0, 3);
                 <h2 class="text-2xl font-bold underline">Latest Blog Posts</h2>
                 {latestBlogPosts.length > 0 ? (
                   <div class="mt-4 space-y-3">
-                    {latestBlogPosts.map((post) => (
+                    {latestBlogPosts.map((post, index) => (
                       <div class="bg-[#E6E6FA] border border-[#000080] p-3">
                         <div class="flex items-start justify-between">
                           <h3 class="text-lg font-bold text-[#000080] hover:text-[#0000FF]">
                             <a href={`/blog/${post.slug}`} class="hover:underline">{post.title}</a>
                           </h3>
-                          <span class="bg-[#FFD700] text-[#000080] px-2 py-1 text-xs font-bold">
-                            NEW!
-                          </span>
+                          {index < 2 && (
+                            <span class="bg-[#FFD700] text-[#000080] px-2 py-1 text-xs font-bold">
+                              NEW!
+                            </span>
+                          )}
                         </div>
                         <p class="text-sm mt-2 text-[#333]">{post.description}</p>
                         <div class="flex items-center justify-between mt-2">

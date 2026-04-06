@@ -1,6 +1,6 @@
 ---
 title: "Migrating from VSCode to Neovim"
-date: "2024-15-28"
+date: "2024-05-28"
 description: "Best editor"
 tags: ["ide", "neovim", "vscode"]
 ---
