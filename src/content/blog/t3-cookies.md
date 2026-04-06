@@ -65,6 +65,7 @@ export const createTRPCContext = async (opts: {
 Voila! Now you can set header in your TRPC router like so:
 
 Credits:
-https://github.com/trpc/trpc/discussions/4800#discussioncomment-7027502
 
-https://www.answeroverflow.com/m/1165005090562789416
+[https://github.com/trpc/trpc/discussions/4800#discussioncomment-7027502](https://github.com/trpc/trpc/discussions/4800#discussioncomment-7027502)
+
+[https://www.answeroverflow.com/m/1165005090562789416](https://www.answeroverflow.com/m/1165005090562789416)

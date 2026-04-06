@@ -1,4 +1,5 @@
 ---
+import { codeToHtml } from "shiki";
 import Layout from "../../components/Layout.astro";
 import { getAllBlogPosts } from "../../utils/blog.ts";
 
@@ -17,83 +18,104 @@ if (!post) {
 }
 
 // Simple markdown to HTML converter
-function markdownToHtml(markdown: string): string {
-  let html = markdown;
+async function markdownToHtml(markdown: string): Promise<string> {
+  // Split by code blocks to process them with Shiki
+  const segments = markdown.split(/(```\w*\n[\s\S]*?```)/g);
 
-  // Headers
-  html = html.replace(/^### (.*$)/gim, '<h3 class="text-xl font-bold text-[#000080] mt-6 mb-3 underline">$1</h3>');
-  html = html.replace(/^## (.*$)/gim, '<h2 class="text-2xl font-bold text-[#000080] mt-8 mb-4 underline">$1</h2>');
-  html = html.replace(/^# (.*$)/gim, '<h1 class="text-3xl font-bold text-[#000080] mt-8 mb-6 underline">$1</h1>');
+  const processedSegments = await Promise.all(
+    segments.map(async (segment) => {
+      const codeMatch = segment.match(/^```(\w+)?\n([\s\S]*?)```$/);
+      if (codeMatch) {
+        const lang = codeMatch[1] || "text";
+        const code = codeMatch[2].trimEnd();
+        try {
+          const highlighted = await codeToHtml(code, {
+            lang,
+            theme: "github-dark",
+          });
+          return `<div class="my-4 overflow-x-auto border border-[#000080] [&>pre]:!m-0 [&>pre]:p-4 [&>pre]:text-sm">${highlighted}</div>`;
+        } catch {
+          return `<pre class="bg-black text-[#00FF00] p-4 my-4 overflow-x-auto border border-[#000080] font-mono text-sm"><code>${code}</code></pre>`;
+        }
+      }
 
-  // Bold and Italic
-  html = html.replace(/\*\*\*(.*?)\*\*\*/g, '<strong><em>$1</em></strong>');
-  html = html.replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-[#8B0000]">$1</strong>');
-  html = html.replace(/\*(.*?)\*/g, '<em class="italic">$1</em>');
+      let html = segment;
 
-  // Code blocks
-  html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, '<pre class="bg-black text-[#00FF00] p-4 my-4 overflow-x-auto border border-[#000080] font-mono text-sm"><code>$2</code></pre>');
+      // Headers
+      html = html.replace(/^### (.*$)/gim, '<h3 class="text-xl font-bold text-[#000080] mt-6 mb-3 underline">$1</h3>');
+      html = html.replace(/^## (.*$)/gim, '<h2 class="text-2xl font-bold text-[#000080] mt-8 mb-4 underline">$1</h2>');
+      html = html.replace(/^# (.*$)/gim, '<h1 class="text-3xl font-bold text-[#000080] mt-8 mb-6 underline">$1</h1>');
 
-  // Inline code
-  html = html.replace(/`([^`]+)`/g, '<code class="bg-[#F0F0F0] text-[#8B0000] px-1 py-0.5 font-mono text-sm border">$1</code>');
+      // Bold and Italic
+      html = html.replace(/\*\*\*(.*?)\*\*\*/g, '<strong><em>$1</em></strong>');
+      html = html.replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-[#8B0000]">$1</strong>');
+      html = html.replace(/\*(.*?)\*/g, '<em class="italic">$1</em>');
 
-  // Links
-  html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-[#0000FF] hover:underline hover:text-[#FF0000]" target="_blank" rel="noopener noreferrer">$1 🔗</a>');
+      // Inline code
+      html = html.replace(/`([^`]+)`/g, '<code class="bg-[#F0F0F0] text-[#8B0000] px-1 py-0.5 font-mono text-sm border">$1</code>');
 
-  // Lists
-  html = html.replace(/^\* (.+$)/gim, '<li class="ml-4">• $1</li>');
-  html = html.replace(/^\d+\. (.+$)/gim, '<li class="ml-4">$1</li>');
+      // Links
+      html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-[#0000FF] hover:underline hover:text-[#FF0000]" target="_blank" rel="noopener noreferrer">$1 🔗</a>');
 
-  // Wrap consecutive list items
-  html = html.replace(/(<li.*?<\/li>\s*)+/g, (match) => {
-    return `<ul class="my-4 space-y-1">${match}</ul>`;
-  });
+      // Lists
+      html = html.replace(/^\* (.+$)/gim, '<li class="ml-4">• $1</li>');
+      html = html.replace(/^\d+\. (.+$)/gim, '<li class="ml-4">$1</li>');
 
-  // Tables (basic support)
-  const tableRegex = /(\|.*\|[\r\n]+)+/g;
-  html = html.replace(tableRegex, (match) => {
-    const rows = match.trim().split('\n');
-    if (rows.length < 2) return match;
-
-    const headerRow = rows[0];
-    // Skip separator row
-    rows[1];
-    const dataRows = rows.slice(2);
-
-    let tableHtml = '<table class="w-full border-collapse border border-[#000080] my-6">';
-
-    // Header
-    const headerCells = headerRow.split('|').slice(1, -1).map(cell => cell.trim());
-    tableHtml += '<tr class="bg-[#CCCCFF]">';
-    headerCells.forEach(cell => {
-      tableHtml += `<th class="border border-[#000080] p-2 font-bold">${cell}</th>`;
-    });
-    tableHtml += '</tr>';
-
-    // Data rows
-    dataRows.forEach(row => {
-      const cells = row.split('|').slice(1, -1).map(cell => cell.trim());
-      tableHtml += '<tr>';
-      cells.forEach(cell => {
-        tableHtml += `<td class="border border-[#000080] p-2">${cell}</td>`;
+      // Wrap consecutive list items
+      html = html.replace(/(<li.*?<\/li>\s*)+/g, (match) => {
+        return `<ul class="my-4 space-y-1">${match}</ul>`;
       });
-      tableHtml += '</tr>';
-    });
 
-    tableHtml += '</table>';
-    return tableHtml;
-  });
+      // Tables (basic support)
+      const tableRegex = /(\|.*\|[\r\n]+)+/g;
+      html = html.replace(tableRegex, (match) => {
+        const rows = match.trim().split('\n');
+        if (rows.length < 2) return match;
 
-  // Paragraphs
-  html = html.replace(/\n\n/g, '</p><p class="mb-4">');
-  html = `<p class="mb-4">${html}</p>`;
+        const headerRow = rows[0];
+        // Skip separator row
+        rows[1];
+        const dataRows = rows.slice(2);
 
-  // Clean up empty paragraphs
-  html = html.replace(/<p class="mb-4"><\/p>/g, '');
+        let tableHtml = '<table class="w-full border-collapse border border-[#000080] my-6">';
 
-  return html;
+        // Header
+        const headerCells = headerRow.split('|').slice(1, -1).map(cell => cell.trim());
+        tableHtml += '<tr class="bg-[#CCCCFF]">';
+        headerCells.forEach(cell => {
+          tableHtml += `<th class="border border-[#000080] p-2 font-bold">${cell}</th>`;
+        });
+        tableHtml += '</tr>';
+
+        // Data rows
+        dataRows.forEach(row => {
+          const cells = row.split('|').slice(1, -1).map(cell => cell.trim());
+          tableHtml += '<tr>';
+          cells.forEach(cell => {
+            tableHtml += `<td class="border border-[#000080] p-2">${cell}</td>`;
+          });
+          tableHtml += '</tr>';
+        });
+
+        tableHtml += '</table>';
+        return tableHtml;
+      });
+
+      // Paragraphs
+      html = html.replace(/\n\n/g, '</p><p class="mb-4">');
+      html = `<p class="mb-4">${html}</p>`;
+
+      // Clean up empty paragraphs
+      html = html.replace(/<p class="mb-4"><\/p>/g, '');
+
+      return html;
+    })
+  );
+
+  return processedSegments.join('');
 }
 
-const contentHtml = markdownToHtml(post.content);
+const contentHtml = await markdownToHtml(post.content);
 ---
 
 <Layout title={`${post.title} - Blog`} description={post.description}>
