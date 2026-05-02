@@ -1,0 +1,4 @@
+Contact: mailto:nuriman@quddus.my
+Expires: 2030-12-01T16:55:00.000Z
+Preferred-Languages: en, my
+Canonical: https://quddus.my/security.txt
