@@ -6,6 +6,7 @@ import Skills from "../components/home/skills.astro";
 import { getBlogPostsMeta } from "../utils/blog.ts";
 
 const latestBlogPosts = getBlogPostsMeta().slice(0, 3);
+const currentYear = new Date().getFullYear();
 ---
 
 <html lang="en">
@@ -155,7 +156,12 @@ const latestBlogPosts = getBlogPostsMeta().slice(0, 3);
                       <th class="border border-[#000080] p-2">Company</th>
                     </tr>
                     <tr>
-                      <td class="border border-[#000080] p-2">Feb 2025 - Present</td>
+                      <td class="border border-[#000080] p-2">May 2026 - Present</td>
+                      <td class="border border-[#000080] p-2">Software Engineer</td>
+                      <td class="border border-[#000080] p-2">OneCredit</td>
+                    </tr>
+                    <tr>
+                      <td class="border border-[#000080] p-2">Feb 2025 - Feb 2026</td>
                       <td class="border border-[#000080] p-2">Software Engineer</td>
                       <td class="border border-[#000080] p-2">Cartridge</td>
                     </tr>
@@ -197,7 +203,7 @@ const latestBlogPosts = getBlogPostsMeta().slice(0, 3);
             </div>
         </div>
         <div class="bg-[#000080] text-[#FFFF00] text-center p-2">
-          <p>© 2024 Quddus Portfolio. Best viewed in Netscape Navigator.</p>
+          <p>© {currentYear} Quddus Portfolio. Best viewed in Netscape Navigator.</p>
         </div>
       </div>
       <a href="https://www.khrnchn.xyz/" target="_blank" rel="noreferrer noopener" class="hidden md:block">
