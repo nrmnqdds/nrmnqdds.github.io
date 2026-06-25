@@ -28,6 +28,12 @@ async function markdownToHtml(markdown: string): Promise<string> {
       if (codeMatch) {
         const lang = codeMatch[1] || "text";
         const code = codeMatch[2].trimEnd();
+
+        // Mermaid diagrams: render as a diagram container, not syntax-highlighted code
+        if (lang === "mermaid") {
+          return `<pre class="mermaid my-4 p-4 bg-white border border-[#000080] overflow-x-auto">${code}</pre>`;
+        }
+
         try {
           const highlighted = await codeToHtml(code, {
             lang,
@@ -230,6 +236,13 @@ const contentHtml = await markdownToHtml(post.content);
       </p>
     </div>
   </div>
+
+  <!-- Mermaid diagram support -->
+  <script is:inline src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js">
+  </script>
+  <script is:inline>
+    mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+  </script>
 </Layout>
 
 <style>
